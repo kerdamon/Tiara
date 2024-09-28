@@ -19,6 +19,7 @@
       "@common/*": ["../common/*"]
     }
   },
+  "references": [{ "path": "../common" }],
   "tsc-alias": {
     "resolveFullPaths": true,
     "verbose": false
