@@ -8,4 +8,5 @@ export default {
     "^@/(.*).js$": ["<rootDir>/src/$1"],
     "^@common/(.*).js$": ["../common/$1"]
   },
+  modulePathIgnorePatterns: ['<rootDir>/dist/']
 };
