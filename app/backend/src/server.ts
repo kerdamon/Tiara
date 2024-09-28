@@ -6,9 +6,9 @@ import { connectToMongo } from "@/config/database.js";
 import { configurePassport } from "@/config/passport.js";
 import authRouter from "@/routers/authRouter.js";
 import someRouter from "@/routers/someRouter.js";
-import { DegreeController } from "./controllers/degreeController.js";
+import { DegreeController } from "./controllers/DegreeController.js";
 import { MockDegreeServiceImpl } from "./service/DegreeService.js";
-import { DegreeRouter } from "./routers/degreeRouter.js";
+import { DegreeRouter } from "./routers/DegreeRouter.js";
 
 const app: Express = express();
 const PORT = process.env.PORT || 3000;
