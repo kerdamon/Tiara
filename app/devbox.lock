@@ -1,0 +1,166 @@
+{
+  "lockfile_version": "1",
+  "packages": {
+    "android-tools@latest": {
+      "last_modified": "2024-09-10T15:01:03Z",
+      "resolved": "github:NixOS/nixpkgs/5ed627539ac84809c78b2dd6d26a5cebeb5ae269#android-tools",
+      "source": "devbox-search",
+      "version": "35.0.1",
+      "systems": {
+        "aarch64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/mzwkh89s6pkhicaa22nwsi9cnfd1ymll-android-tools-35.0.1",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/mzwkh89s6pkhicaa22nwsi9cnfd1ymll-android-tools-35.0.1"
+        },
+        "aarch64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/km6020idzi9ss01906mvh4dn0yxb11wn-android-tools-35.0.1",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/km6020idzi9ss01906mvh4dn0yxb11wn-android-tools-35.0.1"
+        },
+        "x86_64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/3zb0x3fzhxqldxzp2klvsiyjk2yfxk3f-android-tools-35.0.1",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/3zb0x3fzhxqldxzp2klvsiyjk2yfxk3f-android-tools-35.0.1"
+        },
+        "x86_64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/72js122zwf1c7pysb0rgh97jryqcj1nz-android-tools-35.0.1",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/72js122zwf1c7pysb0rgh97jryqcj1nz-android-tools-35.0.1"
+        }
+      }
+    },
+    "mongosh@latest": {
+      "last_modified": "2024-09-10T15:01:03Z",
+      "resolved": "github:NixOS/nixpkgs/5ed627539ac84809c78b2dd6d26a5cebeb5ae269#mongosh",
+      "source": "devbox-search",
+      "version": "2.3.0",
+      "systems": {
+        "aarch64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/52w00mayic9dc1xi9i2423lhykjg9ana-mongosh-2.3.0",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/52w00mayic9dc1xi9i2423lhykjg9ana-mongosh-2.3.0"
+        },
+        "aarch64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/05ijz3ch0b73rjqsphgxhy2hzxbqmpqv-mongosh-2.3.0",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/05ijz3ch0b73rjqsphgxhy2hzxbqmpqv-mongosh-2.3.0"
+        },
+        "x86_64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/sslz4cs5kflq7mzgs7h54ckvxbwqcvcq-mongosh-2.3.0",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/sslz4cs5kflq7mzgs7h54ckvxbwqcvcq-mongosh-2.3.0"
+        },
+        "x86_64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/kkxnb9vvbdirsgls3z1rmrnm36cqdvbi-mongosh-2.3.0",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/kkxnb9vvbdirsgls3z1rmrnm36cqdvbi-mongosh-2.3.0"
+        }
+      }
+    },
+    "nodejs@21": {
+      "last_modified": "2024-04-19T21:36:04Z",
+      "plugin_version": "0.0.2",
+      "resolved": "github:NixOS/nixpkgs/92d295f588631b0db2da509f381b4fb1e74173c5#nodejs_21",
+      "source": "devbox-search",
+      "version": "21.7.3",
+      "systems": {
+        "aarch64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/hxr5ziwxn72wxcrhxasdy542h6z0r9hg-nodejs-21.7.3",
+              "default": true
+            },
+            {
+              "name": "libv8",
+              "path": "/nix/store/y6xj0m2n7mlzgx5mc62m0lb4h02dzklr-nodejs-21.7.3-libv8"
+            }
+          ],
+          "store_path": "/nix/store/hxr5ziwxn72wxcrhxasdy542h6z0r9hg-nodejs-21.7.3"
+        },
+        "aarch64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/xfddvy0bfzc78yipmyx81irjqfpkm1d0-nodejs-21.7.3",
+              "default": true
+            },
+            {
+              "name": "libv8",
+              "path": "/nix/store/vjr64cmj37yglbzjz6hrwqa4z6hw2mz2-nodejs-21.7.3-libv8"
+            }
+          ],
+          "store_path": "/nix/store/xfddvy0bfzc78yipmyx81irjqfpkm1d0-nodejs-21.7.3"
+        },
+        "x86_64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/pnrd7gl28dmy86pprrpifq7qny3sx1xp-nodejs-21.7.3",
+              "default": true
+            },
+            {
+              "name": "libv8",
+              "path": "/nix/store/wnzqqc8ik64a6zn4k4bbcgzvi8dp8vnb-nodejs-21.7.3-libv8"
+            }
+          ],
+          "store_path": "/nix/store/pnrd7gl28dmy86pprrpifq7qny3sx1xp-nodejs-21.7.3"
+        },
+        "x86_64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/dfs59hwhc4mb4hdk77nc5dd39k2v2qs2-nodejs-21.7.3",
+              "default": true
+            },
+            {
+              "name": "libv8",
+              "path": "/nix/store/iq38acw88hl92vpwamfkzgk3pk3dsr0x-nodejs-21.7.3-libv8"
+            }
+          ],
+          "store_path": "/nix/store/dfs59hwhc4mb4hdk77nc5dd39k2v2qs2-nodejs-21.7.3"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,5 @@
+node_modules/
+dist/
+notes_local.md
+.env
+*.pem
