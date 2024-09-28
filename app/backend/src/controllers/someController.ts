@@ -1,4 +1,3 @@
-// import { functionDTO } from "@common/DTOs/dtos.js";
 import { Request, Response } from "express";
 
 export function doSomething(req: Request, res: Response) {
