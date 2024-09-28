@@ -1,19 +1,60 @@
-import { connectToMongo } from "@/config/database.js"
-import { IUser, User } from "@/models/user.js"
+import { AuthUtils } from "@/service/auth/AuthUtils.js";
+import { PrismaClient, Prisma } from "@prisma/client";
 
-describe("MongoDB User integration test", () => {
-  beforeEach(() => {
-    return connectToMongo()
-  })
+const prisma = new PrismaClient();
+const testUserEmail = "test@gmail.com";
+const testUserPasswordText = "dupakupa123";
 
-  test("Succesfully save an user to db", async () => {
-    const newUser = await new User({
-        email: "dupa@gmail.com",
-        passwordHash: "bubabiba",
-        salt: "123",
-    }).save()
+describe("PosgreSQL user integration test", () => {
+  beforeAll(async () => {
+    const { salt, passwordHash } =
+      AuthUtils.generatePasswordHash(testUserPasswordText);
 
-    return User.findById(newUser._id).then(user => expect(user?.email).toBe(newUser.email) )
-  })
-})
+    await prisma.user.create({
+      data: {
+        email: testUserEmail,
+        passwordHash,
+        salt,
+      },
+    });
+  });
 
+  afterAll(async () => {
+    const deleteUsers = prisma.user.delete({
+      where: {
+        email: testUserEmail,
+      },
+    });
+
+    await prisma.$transaction([deleteUsers]);
+
+    await prisma.$disconnect();
+  });
+
+  it("should correctly create a new user", async () => {
+    const email = "test2@gmail.com";
+    const password = "bubabiba";
+    const { salt, passwordHash } = AuthUtils.generatePasswordHash(password);
+    const user = {
+      email,
+      salt,
+      passwordHash,
+    };
+
+    await prisma.user.create({ data: user });
+
+    const foundUser = await prisma.user.findFirst({
+      where: {
+        passwordHash: AuthUtils.hashPassword(password, salt),
+      },
+    });
+
+    expect(foundUser?.email).toBe(email);
+
+    await prisma.user.delete({
+      where: {
+        email,
+      },
+    });
+  });
+});
