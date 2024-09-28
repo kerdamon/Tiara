@@ -1,9 +1,8 @@
-import { testF } from "@common/DTOs/test.js";
 import { Request, Response } from "express";
 
 export function doSomething(req: Request, res: Response) {
   res.json({
-    message: "Hello World" + testF(),
+    message: "Hello World",
   });
 }
 
