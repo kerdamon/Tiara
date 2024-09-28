@@ -2,20 +2,19 @@ volumes:
   mongo_data:
 
 services:
-  services:
-    posgres:
-      hostname: posgres
-      image: ankane/pgvector
-      ports:
-       - 5432:5432
-      restart: always
-      environment:
-        - POSTGRES_DB=tiara
-        - POSTGRES_USER=admin
-        - POSTGRES_PASSWORD=admin
-        - POSTGRES_HOST_AUTH_METHOD=trust
-      # volumes:
-      #  - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+  postgres:
+    hostname: postgres
+    image: ankane/pgvector
+    ports:
+      - 5432:5432
+    restart: always
+    environment:
+      - POSTGRES_DB=tiara
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=admin
+      - POSTGRES_HOST_AUTH_METHOD=trust
+    # volumes:
+    #  - ./init.sql:/docker-entrypoint-initdb.d/init.sql
 
   # ml_service:
   #   build:
