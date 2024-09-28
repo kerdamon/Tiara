@@ -1,13 +1,13 @@
 {
   "packages": [
     "stdenv.cc.cc.lib",
-    "uv@0.4.11",
     "python@3.10.14",
-    "pre-commit@latest"
+    "pre-commit@latest",
+    "uv@0.4.11"
   ],
   "shell": {
     "init_hook": [
-      ". ./.venv/bin/activate", 
+      ". ./.venv/bin/activate",
       "uv sync"
     ],
     "scripts": {
