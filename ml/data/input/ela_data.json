@@ -1,0 +1,172 @@
+{
+    "13860": {
+        "majorExternalCode": "13860",
+        "majorName": "Executive Master of Business Administration",
+        "institutionName": "Uniwersytet Ekonomiczny we Wrocławiu",
+        "studyField": "Dziedzina nauk społecznych",
+        "studyLevel": "II stopnia",
+        "voivodeship": "Dolnośląskie",
+        "studyForm": "Niestacjonarne",
+        "studyProfile": "profil ogólnoakademicki",
+        "semesters": "4-semestralne",
+        "faculty": "",
+        "numberOfGraduates": 16,
+        "employmentData": {
+            "salary": 24133.06,
+            "timeOfLookingForJob": 1.31
+        }
+    },
+    "13859": {
+        "majorExternalCode": "13859",
+        "majorName": "Executive Master of Business Administration",
+        "institutionName": "Uniwersytet Ekonomiczny we Wrocławiu",
+        "studyField": "Dziedzina nauk społecznych",
+        "studyLevel": "II stopnia",
+        "voivodeship": "Dolnośląskie",
+        "studyForm": "Niestacjonarne",
+        "studyProfile": "profil ogólnoakademicki",
+        "semesters": "4-semestralne",
+        "faculty": "",
+        "numberOfGraduates": 28,
+        "employmentData": {
+            "salary": 16739.28,
+            "timeOfLookingForJob": 0.57
+        }
+    },
+    "7951": {
+        "majorExternalCode": "7951",
+        "majorName": "Informatyka analityczna",
+        "institutionName": "Uniwersytet Jagielloński w Krakowie",
+        "studyField": "Dziedzina nauk ścisłych i przyrodniczych",
+        "studyLevel": "II stopnia",
+        "voivodeship": "Małopolskie",
+        "studyForm": "Stacjonarne",
+        "studyProfile": "profil ogólnoakademicki",
+        "semesters": "4-semestralne",
+        "faculty": "",
+        "numberOfGraduates": 13,
+        "employmentData": {
+            "salary": 13322.65,
+            "timeOfLookingForJob": 1.86
+        }
+    },
+    "12779": {
+        "majorExternalCode": "12779",
+        "majorName": "Informatyka stosowana",
+        "institutionName": "Uniwersytet Jagielloński w Krakowie",
+        "studyField": "Dziedzina nauk ścisłych i przyrodniczych",
+        "studyLevel": "II stopnia",
+        "voivodeship": "Małopolskie",
+        "studyForm": "Niestacjonarne",
+        "studyProfile": "profil ogólnoakademicki",
+        "semesters": "4-semestralne",
+        "faculty": "",
+        "numberOfGraduates": 15,
+        "employmentData": {
+            "salary": 13697.51,
+            "timeOfLookingForJob": 0.0
+        }
+    },
+    "2017": {
+        "majorExternalCode": "2017",
+        "majorName": "Informatyka",
+        "institutionName": "Politechnika Gdańska",
+        "studyField": "Dziedzina nauk inżynieryjno-technicznych",
+        "studyLevel": "II stopnia",
+        "voivodeship": "Pomorskie",
+        "studyForm": "Niestacjonarne",
+        "studyProfile": "profil ogólnoakademicki",
+        "semesters": "4-semestralne",
+        "faculty": "Wydział Elektroniki, Telekomunikacji i Informatyki",
+        "numberOfGraduates": 42,
+        "employmentData": {
+            "salary": 14929.84,
+            "timeOfLookingForJob": 0.69
+        }
+    },
+    "5182": {
+        "majorExternalCode": "5182",
+        "majorName": "Informatyka",
+        "institutionName": "Uniwersytet Wrocławski",
+        "studyField": "Dziedzina nauk ścisłych i przyrodniczych",
+        "studyLevel": "II stopnia",
+        "voivodeship": "Dolnośląskie",
+        "studyForm": "Stacjonarne",
+        "studyProfile": "profil ogólnoakademicki",
+        "semesters": "4-semestralne",
+        "faculty": "Wydział Matematyki i Informatyki",
+        "numberOfGraduates": 13,
+        "employmentData": {
+            "salary": 15912.52,
+            "timeOfLookingForJob": 2.75
+        }
+    },
+    "9649": {
+        "majorExternalCode": "9649",
+        "majorName": "Informatyka",
+        "institutionName": "Politechnika Warszawska",
+        "studyField": "Dziedzina nauk inżynieryjno-technicznych",
+        "studyLevel": "II stopnia",
+        "voivodeship": "Mazowieckie",
+        "studyForm": "Niestacjonarne",
+        "studyProfile": "profil ogólnoakademicki",
+        "semesters": "4-semestralne",
+        "faculty": "",
+        "numberOfGraduates": 25,
+        "employmentData": {
+            "salary": 13931.64,
+            "timeOfLookingForJob": 0.0
+        }
+    },
+    "9025": {
+        "majorExternalCode": "9025",
+        "majorName": "Informatyka Stosowana",
+        "institutionName": "Politechnika Warszawska",
+        "studyField": "Dziedzina nauk inżynieryjno-technicznych",
+        "studyLevel": "II stopnia",
+        "voivodeship": "Mazowieckie",
+        "studyForm": "Niestacjonarne",
+        "studyProfile": "profil ogólnoakademicki",
+        "semesters": "4-semestralne",
+        "faculty": "Wydział Elektryczny",
+        "numberOfGraduates": 74,
+        "employmentData": {
+            "salary": 14719.6,
+            "timeOfLookingForJob": 0.14
+        }
+    },
+    "6318": {
+        "majorExternalCode": "6318",
+        "majorName": "Informatyka",
+        "institutionName": "Uniwersytet Gdański",
+        "studyField": "Dziedzina nauk ścisłych i przyrodniczych",
+        "studyLevel": "II stopnia",
+        "voivodeship": "Pomorskie",
+        "studyForm": "Niestacjonarne",
+        "studyProfile": "profil ogólnoakademicki",
+        "semesters": "4-semestralne",
+        "faculty": "Wydział Matematyki, Fizyki i Informatyki",
+        "numberOfGraduates": 18,
+        "employmentData": {
+            "salary": 13144.77,
+            "timeOfLookingForJob": 0.0
+        }
+    },
+    "3580": {
+        "majorExternalCode": "3580",
+        "majorName": "Informatyka",
+        "institutionName": "Uniwersytet im. Adama Mickiewicza w Poznaniu",
+        "studyField": "Dziedzina nauk ścisłych i przyrodniczych",
+        "studyLevel": "II stopnia",
+        "voivodeship": "Wielkopolskie",
+        "studyForm": "Niestacjonarne",
+        "studyProfile": "profil ogólnoakademicki",
+        "semesters": "3-semestralne",
+        "faculty": "Wydział Matematyki i Informatyki",
+        "numberOfGraduates": 28,
+        "employmentData": {
+            "salary": 12779.76,
+            "timeOfLookingForJob": 0.17
+        }
+    }
+},
