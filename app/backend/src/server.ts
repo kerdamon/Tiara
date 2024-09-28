@@ -6,6 +6,9 @@ import { connectToMongo } from "@/config/database.js";
 import { configurePassport } from "@/config/passport.js";
 import authRouter from "@/routers/authRouter.js";
 import someRouter from "@/routers/someRouter.js";
+import { DegreeController } from "./controllers/degreeController.js";
+import { MockDegreeServiceImpl } from "./service/DegreeService.js";
+import { DegreeRouter } from "./routers/degreeRouter.js";
 
 const app: Express = express();
 const PORT = process.env.PORT || 3000;
@@ -16,8 +19,13 @@ app.use(express.json());
 await connectToMongo();
 configurePassport();
 
+const degreeService = new MockDegreeServiceImpl();
+const degreeController = new DegreeController(degreeService);
+const degreeRouter = new DegreeRouter(degreeController);
+
 const router = express.Router();
 router.use("/auth", authRouter);
+router.use("/degree", degreeRouter.router);
 router.use(someRouter);
 
 app.use("/api/v1", router);
