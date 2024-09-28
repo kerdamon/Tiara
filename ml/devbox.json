@@ -4,7 +4,7 @@
     "python@3.10.14",
     "pre-commit@latest",
     "uv@0.4.11",
-    "gdrive@latest",
+    "htmlq@latest",
     "jiq@latest",
     "jq@latest",
     "jless@latest"
