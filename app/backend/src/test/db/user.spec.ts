@@ -1,5 +1,5 @@
 import { connectToMongo } from "@/config/database.js"
-import { IUser, User } from "@/models/user.js"
+import { User } from "@/models/user.js"
 
 describe("MongoDB User integration test", () => {
   beforeEach(() => {
