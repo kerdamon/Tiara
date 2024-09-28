@@ -1,8 +1,10 @@
 import { City } from './City';
+import { Faculty } from './Faculty';
 import { University } from './University';
 
 export interface Major {
   university: University;
+  faculty?: Faculty;
   city: City;
   numberOfGraduates: number;
   jobSearchTime: number; // time spent looking for a full-time job in months
