@@ -3,7 +3,8 @@
   "packages": [
     "nodejs@21",
     "android-tools@latest",
-    "mongosh@latest"
+    "mongosh@latest",
+    "yarn@latest"
   ],
   "shell": {
     "init_hook": [
