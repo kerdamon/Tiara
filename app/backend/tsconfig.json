@@ -24,6 +24,6 @@
     "resolveFullPaths": true,
     "verbose": false
   },
-  "include": ["src"],
-  "exclude": ["node_modules"]
+  "include": ["src", "prisma/schema.prisma"],
+  "exclude": ["node_modules", "/src/test"]
 }
