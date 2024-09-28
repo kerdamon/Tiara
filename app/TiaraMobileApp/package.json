@@ -17,6 +17,8 @@
     "@fortawesome/react-native-fontawesome": "^0.3.2",
     "@tanstack/react-query": "^5.56.2",
     "axios": "^1.7.7",
+    "@react-navigation/native": "^6.1.18",
+    "@react-navigation/stack": "^6.4.1",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-prettier": "^5.2.1",
     "expo": "~51.0.28",
@@ -24,12 +26,18 @@
     "expo-status-bar": "~1.12.1",
     "react": "18.2.0",
     "react-native": "0.74.5",
-    "react-native-svg": "^15.7.1"
+    "react-native-svg": "^15.7.1",
+    "react-native-gesture-handler": "^2.20.0",
+    "react-native-paper": "^5.12.5",
+    "react-native-safe-area-context": "^4.11.0",
+    "react-native-screens": "^3.34.0",
+    "react-native-vector-icons": "^10.2.0"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",
     "@types/react": "~18.2.45",
     "@types/react-native-dotenv": "^0.2.2",
+    "@types/react-native": "^0.73.0",
     "eslint": "^8.57.0",
     "eslint-config-expo": "^7.1.2",
     "prettier": "^3.3.3",
