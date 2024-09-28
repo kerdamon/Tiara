@@ -1,9 +1,9 @@
+import { Major } from '@common/interfaces/Major';
 import { API_URL } from '@env';
 import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
 import React from 'react';
 import { Text, View } from 'react-native';
-import { Major } from '../../interfaces/Major';
 
 const MajorScreen = () => {
   const { data } = useQuery({
