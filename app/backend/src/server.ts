@@ -9,11 +9,12 @@ import someRouter from "@/routers/someRouter.js";
 
 const app: Express = express();
 const PORT = process.env.PORT || 3000;
+const MONGO_URI = process.env.MONGO_URI;
 
 app.use(cors());
 app.use(express.json());
 
-await connectToMongo();
+await connectToMongo(MONGO_URI || "");
 configurePassport();
 
 const router = express.Router();
