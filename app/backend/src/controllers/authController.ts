@@ -60,8 +60,8 @@ function signJWT(user: IUser) {
 }
 
 function generatePasswordHash(password: string) {
-  var salt = crypto.randomBytes(32).toString("hex");
-  var passwordHash = hashPassword(password, salt);
+  const salt = crypto.randomBytes(32).toString("hex");
+  const passwordHash = hashPassword(password, salt);
 
   return {
     salt,
