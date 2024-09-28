@@ -19,7 +19,9 @@ dependencies = [
 
 [tool.uv]
 dev-dependencies = [
+    "dvc[gdrive]>=3.55.2",
     "ipykernel>=6.29.5",
+    "pathspec>=0.12.1",
 ]
 
 [tool.uv.packages]

@@ -1,0 +1,7 @@
+[core]
+    remote = origin
+    autostage = true
+['remote "origin"']
+    url = gdrive://11t3I9RbfmfDpfixQ696xqarxn7bjGDWJ/dvcstore
+    gdrive_client_id = 2187690237-s0ofhib8t920vmhcnqm2qiboo1d69m0k.apps.googleusercontent.com
+    gdrive_client_secret = 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
