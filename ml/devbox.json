@@ -1,0 +1,18 @@
+{
+  "packages": [
+    "stdenv.cc.cc.lib",
+    "uv@0.4.11",
+    "python@3.10.14",
+    "pre-commit@latest"
+  ],
+  "shell": {
+    "init_hook": [
+      ". ./.venv/bin/activate"
+    ],
+    "scripts": {
+      "test": [
+        "echo \"Error: no test specified\" && exit 1"
+      ]
+    }
+  }
+}

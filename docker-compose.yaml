@@ -1,0 +1,37 @@
+version: "3.8"
+
+volumes:
+  mongo_data:
+
+services:
+  mongodb:
+    image: mongo:latest
+    container_name: mongodb
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+
+  ml_service:
+    build:
+      context: ./ml
+      dockerfile: Dockerfile
+    container_name: ml_service
+    ports:
+      - "8000:8000"
+    depends_on:
+      - mongodb
+    develop:
+      # Create a `watch` configuration to update the app
+      watch:
+        # Sync the working directory with the `/app` directory in the container
+        - action: sync
+          path: ./ml
+          target: /app
+          # Exclude the project virtual environment
+          ignore:
+            - .venv/
+
+        # Rebuild the image on changes to the `pyproject.toml`
+        - action: rebuild
+          path: ./ml/pyproject.toml
