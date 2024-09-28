@@ -1,49 +1,46 @@
-import * as React from 'react';
-import { View, StyleSheet } from 'react-native';
-import { Text, Button, Card } from 'react-native-paper';
-import { StackNavigationProp } from '@react-navigation/stack';
+import React from 'react';
+import ScreenWrapper from '../components/ScreenWrapper';
+import SectionList from '../components/SectionComponent'; // Import nowego komponentu
 
-type RootStackParamList = {
-  Home: undefined;
-  Details: undefined;
-};
+const data = [
+  {
+    title: 'Informatyka',
+    university: 'Politechnika Śląska',
+    location: 'Gliwice',
+    price: 7600,
+    image: require('../../assets/IconD.png'),
+  },
+  {
+    title: 'Informatyka',
+    university: 'Politechnika Śląska',
+    location: 'Gliwice',
+    price: 7600,
+    image: require('../../assets/IconD.png'),
+  },
+  {
+    title: 'Informatyka',
+    university: 'Politechnika Śląska',
+    location: 'Gliwice',
+    price: 7600,
+    image: require('../../assets/IconD.png'),
+  },
+  {
+    title: 'Informatyka',
+    university: 'Politechnika Śląska',
+    location: 'Gliwice',
+    price: 7600,
+    image: require('../../assets/IconD.png'),
+  },
+];
 
-type HomeScreenNavigationProp = StackNavigationProp<RootStackParamList, 'Home'>;
-
-type Props = {
-  navigation: HomeScreenNavigationProp;
-};
-
-export function HomeScreen({ navigation }: Props) {
+const HomeScreen = () => {
   return (
-    <View style={styles.container}>
-      <Card style={styles.card}>
-        <Card.Content>
-          <Text style={styles.title}>Welcome in our app!</Text>
-          <Text>Hello. Hello.</Text>
-        </Card.Content>
-        <Card.Actions>
-          <Button onPress={() => navigation.navigate('Details')}>Explore More</Button>
-        </Card.Actions>
-      </Card>
-    </View>
+    <ScreenWrapper title="Cześć!">
+      <SectionList title="Ostatnio przeglądane" data={data} />
+      <SectionList title="Wybrane dla Ciebie" data={data} />
+      <SectionList title="W Twojej okolicy" data={data} />
+    </ScreenWrapper>
   );
-}
+};
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: 16,
-  },
-  card: {
-    width: '100%',
-    padding: 16,
-  },
-  title: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    marginBottom: 8,
-  },
-});
+export default HomeScreen;
