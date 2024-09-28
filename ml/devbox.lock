@@ -1,6 +1,30 @@
 {
   "lockfile_version": "1",
   "packages": {
+    "gdrive@latest": {
+      "last_modified": "2024-09-10T15:01:03Z",
+      "resolved": "github:NixOS/nixpkgs/5ed627539ac84809c78b2dd6d26a5cebeb5ae269#gdrive",
+      "source": "devbox-search",
+      "version": "2.1.1"
+    },
+    "jiq@latest": {
+      "last_modified": "2024-09-10T15:01:03Z",
+      "resolved": "github:NixOS/nixpkgs/5ed627539ac84809c78b2dd6d26a5cebeb5ae269#jiq",
+      "source": "devbox-search",
+      "version": "0.7.2"
+    },
+    "jless@latest": {
+      "last_modified": "2024-09-10T15:01:03Z",
+      "resolved": "github:NixOS/nixpkgs/5ed627539ac84809c78b2dd6d26a5cebeb5ae269#jless",
+      "source": "devbox-search",
+      "version": "0.9.0"
+    },
+    "jq@latest": {
+      "last_modified": "2024-09-20T22:35:44Z",
+      "resolved": "github:NixOS/nixpkgs/a1d92660c6b3b7c26fb883500a80ea9d33321be2#jq",
+      "source": "devbox-search",
+      "version": "1.7.1"
+    },
     "pre-commit@latest": {
       "last_modified": "2024-09-18T09:48:47Z",
       "resolved": "github:NixOS/nixpkgs/294eb5975def0caa718fca92dc5a9d656ae392a9#pre-commit",
