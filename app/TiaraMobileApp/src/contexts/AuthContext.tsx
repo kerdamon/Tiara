@@ -1,6 +1,13 @@
+import { API_URL, TOKEN_KEY } from '@env';
 import axios from 'axios';
 import * as SecureStore from 'expo-secure-store';
-import { createContext, useContext, useEffect, useState } from 'react';
+import {
+  createContext,
+  ReactNode,
+  useContext,
+  useEffect,
+  useState,
+} from 'react';
 
 interface AuthProps {
   authState?: { token: string | null; authenticated: boolean | null };
@@ -9,16 +16,13 @@ interface AuthProps {
   onLogout?: () => Promise<any>;
 }
 
-const TOKEN_KEY = 'jwt_token';
-export const API_URL = 'http://localhost:8000/api/v1/auth'; // to make that work: adb -s <device-name> reverse tcp:8000 tcp:8000
-// export const API_URL = "http://10.0.2.2:8000/api/v1/auth"; // this is address for hosts network in android emulator
 const AuthContext = createContext<AuthProps>({});
 
 export const useAuth = () => {
   return useContext(AuthContext);
 };
 
-export const AuthProvider = ({ children }) => {
+export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const [authState, setAuthState] = useState<{
     token: string | null;
     authenticated: boolean | null;
