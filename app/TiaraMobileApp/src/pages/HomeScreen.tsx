@@ -17,7 +17,6 @@ const HomeScreen = () => {
         })
         .then((res) => {
           console.log('got data from backend');
-          // console.log(res);
           return res.data;
         }),
   });

@@ -20,10 +20,6 @@ const PRIMARY = '#ECE4D7';
 const SECONDARY = '#510302';
 
 export default function App() {
-  // console.log('REQUESTING FROM BACKEND');
-  // fetch('http://localhost:8000/api/v1/major')
-  //   .then((res) => console.log(res))
-  //   .catch((err) => console.error(err));
   return (
     <PaperProvider>
       <QueryClientProvider client={queryClient}>
