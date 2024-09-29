@@ -16,6 +16,8 @@ interface IRawDataEnty {
   faculty: string;
   numberOfGraduates: number;
   employmentData: IEmploymentData;
+  ranking: number,
+  description: string,
 }
 
 interface IEmploymentData {
@@ -67,6 +69,8 @@ async function seedDegrees() {
         },
         employmentSalary: entry.employmentData.salary,
         timeOfLookingForJob: entry.employmentData.timeOfLookingForJob,
+        ranking: entry.ranking,
+        description: entry.description,
       }
     })
   });
