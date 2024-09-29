@@ -8,8 +8,9 @@ import * as React from 'react';
 import { StyleSheet, View } from 'react-native';
 import { Provider as PaperProvider } from 'react-native-paper';
 import SCREEN_NAMES from './src/constants/ScreenNames';
-import CatalogueScreen from './src/pages/CatalogueScreen';
 import HomeScreen from './src/pages/HomeScreen';
+import MajorsList from './src/pages/MajorsList';
+
 
 const Stack = createStackNavigator();
 const queryClient = new QueryClient();
@@ -85,12 +86,9 @@ function HomeTab() {
 function CatalogueTab() {
   return (
     <Stack.Navigator initialRouteName={SCREEN_NAMES.CATALOGUE}>
-      <Stack.Screen
-        name={SCREEN_NAMES.CATALOGUE}
-        component={CatalogueScreen}
-        options={{ headerShown: false }}
-      />
+      <Stack.Screen name={SCREEN_NAMES.CATALOGUE} component={MajorsList} options={{ headerShown: false }} />
     </Stack.Navigator>
+
   );
 }
 

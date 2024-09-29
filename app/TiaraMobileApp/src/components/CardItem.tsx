@@ -42,9 +42,7 @@ const CardItem: React.FC<CardItemProps> = ({
           style={styles.gradientOverlay}
         />
         <View style={styles.textOverlay}>
-          <Text style={[styles.title, { fontFamily: 'WorkSans_700Bold' }]}>
-            {title}
-          </Text>
+          <Text style={[styles.title, { fontFamily: 'WorkSans_600SemiBold' }]}>{title}</Text>
         </View>
       </View>
       <View style={styles.info}>
