@@ -10,6 +10,7 @@ import { Provider as PaperProvider } from 'react-native-paper';
 import SCREEN_NAMES from './src/constants/ScreenNames';
 import HomeScreen from './src/pages/HomeScreen';
 import MajorsList from './src/pages/MajorsList';
+import DetailsScreen from './src/pages/DetailsScreen';
 
 
 const Stack = createStackNavigator();
