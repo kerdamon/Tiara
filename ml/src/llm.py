@@ -100,6 +100,7 @@ class QueryRequest(BaseModel):
 # API route for querying the RAG pipeline
 @app.post("/query")
 def get_rag_answer(request: QueryRequest):
+    print(request)
     # Extract the query from the request
     query = request.query
     top_k = request.top_k
@@ -128,4 +129,4 @@ def health_check():
 
 # Run the server if this file is executed directly
 if __name__ == "__main__":
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+    uvicorn.run(app, host="0.0.0.0", port=8001)

@@ -13,7 +13,7 @@ export interface AiService {
   getIdsById(id: number): Promise<IMajor[]>;
 }
 
-class AiServiceImpl implements AiService {
+export class AiServiceImpl implements AiService {
   prismaClient: PrismaClient;
   serviceAddr: string;
   constructor(prismaClient: PrismaClient, serviceAddr: string) {
@@ -23,6 +23,7 @@ class AiServiceImpl implements AiService {
   getIdsById(id: number, amount: number = 5): Promise<IMajor[]> {
     return fetch(this.serviceAddr + "/knn", {
       method: "POST",
+      headers: new Headers({'content-type': 'application/json'}),
       body: JSON.stringify({
         major_id: id,
         top_k: amount,
@@ -49,16 +50,20 @@ class AiServiceImpl implements AiService {
     
     return fetch(this.serviceAddr + "/query", {
       method: "POST",
+      headers: new Headers({'content-type': 'application/json'}),
       body: JSON.stringify({
-        query: prompt,
-        top_k: amount,
+        "query": prompt,
+        "top_k": amount,
       }),
     })
-      .then((res) => res.json() as Promise<number[]>)
+      .then((res) => {
+        console.log(res)
+        return res.json() as Promise<{ top_k: number[]}>
+      })
       .then((ids) =>
         this.prismaClient.major.findMany({
           where: {
-            id: { in: ids },
+            id: { in: ids.top_k },
           },
           include: {
             university: true,
