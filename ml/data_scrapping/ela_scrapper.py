@@ -1,6 +1,7 @@
 import json
 import requests
 import os
+import time
 
 def get_page_data(offset):
     page_template = 'https://ela.nauka.gov.pl/sla-server/v6.0/major/filterList?experience=ALL&graduationYear=2022&major=&institution=&studyVoivodeship=&studyForm=&studyLevel=&limit=10&offset=' + str(offset) + '&lang=pl'
@@ -10,14 +11,18 @@ def get_page_data(offset):
 def get_ela_data():
     
     start_offset = 0
-    end_offset = 10
+    end_offset = 6860
     
     target_json = '/home/ppjotrek/Python/hackyeah24/ml/data/input/ela_data.json'
-    # with open(target_json, 'a') as f:
-    #             f.write('{\n')
+    try:
+        os.remove(target_json)
+    except FileNotFoundError:
+        pass
+
     
     output_dict = {}
     for offset in range(start_offset, end_offset, 10):
+        page_start = time.time()
         response = get_page_data(offset)
         data = json.loads(response.text)
         for data_item in data['data']:
@@ -39,9 +44,9 @@ def get_ela_data():
                     'timeOfLookingForJob': data_item['major']['majorData']['timeOfLookingForJob'],
                 }
             }
-                
-    # with open(target_json, 'a') as f:
-    #             f.write('}')
+        page_end = time.time()
+        print(f"Records {offset} - {offset + 10} processed in {page_end - page_start} seconds")
+
     with open(target_json, 'a', encoding='utf8') as f:
         f.write(json.dumps(output_dict, ensure_ascii=False, indent=4) + ',\n')  
             
