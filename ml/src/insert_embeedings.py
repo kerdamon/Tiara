@@ -17,11 +17,12 @@ import random
 SentenceLatentizer = SentenceTransformer('sentence-transformers/all-MiniLM-L6-v2')
 
 def insert_major(major):
-    embedding = SentenceLatentizer.encode(str(major), convert_to_numpy=True).astype(np.float32)  # Create the embedding
+    embedding = SentenceLatentizer.encode(str(major))  # Create the embedding
     with connection_factory() as conn:
-        cur = conn.cursor()
-        cur.execute('INSERT INTO "Major" (vector) VALUES (%s)', (embedding.tolist()))
-        conn.commit()
+        #cur = conn.cursor()
+        print(embedding)
+        conn.execute('INSERT INTO "Major" (vector) VALUES (%s)', (embedding, ))
+        #conn.commit()
 
 def main():
 
