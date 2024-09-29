@@ -7,7 +7,7 @@ import CardItem from './CardItem';
 
 interface SectionListProps {
   title: string;
-  data?: AxiosResponse<IMajor[]>;
+  data?: IMajor[];
   isLoading: boolean;
 }
 
@@ -16,23 +16,24 @@ const SectionList: React.FC<SectionListProps> = ({
   data,
   isLoading,
 }) => {
-  const renderItem = ({ item }: { item: IMajor }) => (
+  console.debug(`DATA LENGTH: ${data?.length}`);
+
+  const renderItem = (item: IMajor) => (
     <CardItem
       title={item.name}
       university={item.university}
       location={item.voivodeship}
       price={item.employmentSalary}
-      image={item.imageUrl}
+      imageUri={item.imageUrl}
     />
   );
-
   return (
     <View>
       <Text style={styles.sectionTitle}>{title}</Text>
       <FlatList
-        data={data?.data}
         horizontal
-        renderItem={renderItem}
+        data={data}
+        renderItem={({ item }) => renderItem(item)}
         keyExtractor={(item, index) => index.toString()}
         showsHorizontalScrollIndicator={false}
         pagingEnabled

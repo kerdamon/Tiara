@@ -7,66 +7,34 @@ import ScreenWrapper from '../components/ScreenWrapper';
 import SearchBox from '../components/SearchBox';
 import SectionList from '../components/SectionComponent'; // Import nowego komponentu
 
-const data = [
-  {
-    title: 'Informatyka',
-    university: 'Politechnika Śląska',
-    location: 'Gliwice',
-    price: 7600,
-    image: require('../../assets/IconD.png'),
-  },
-  {
-    title: 'Informatyka',
-    university: 'Politechnika Śląska',
-    location: 'Gliwice',
-    price: 7600,
-    image: require('../../assets/IconD.png'),
-  },
-  {
-    title: 'Informatyka',
-    university: 'Politechnika Śląska',
-    location: 'Gliwice',
-    price: 7600,
-    image: require('../../assets/IconD.png'),
-  },
-  {
-    title: 'Informatyka',
-    university: 'Politechnika Śląska',
-    location: 'Gliwice',
-    price: 7600,
-    image: require('../../assets/IconD.png'),
-  },
-];
-
 const HomeScreen = () => {
-  const { data, isFetching } = useQuery({
+  const { data, isPending } = useQuery({
     queryKey: ['major', 'sdf'],
     queryFn: () =>
-      axios.post<IMajor[]>(`${API_URL}/major`, {
-        prompt: 'dupa',
-      }),
+      axios
+        .post<IMajor[]>(`${API_URL}/major`, {
+          prompt: 'dupa',
+        })
+        .then((res) => {
+          console.log('got data from backend');
+          return res.data;
+        }),
   });
 
-  return (
-    <ScreenWrapper title="Cześć!">
-      <SearchBox />
-      <SectionList
-        title="Ostatnio przeglądane"
-        data={data}
-        isLoading={isFetching}
-      />
-      <SectionList
-        title="Wybrane dla Ciebie"
-        data={data}
-        isLoading={isFetching}
-      />
-      <SectionList
-        title="W Twojej okolicy"
-        data={data}
-        isLoading={isFetching}
-      />
-    </ScreenWrapper>
-  );
+  if (!isPending) {
+    return (
+      <ScreenWrapper title="Cześć!">
+        <SearchBox />
+        <SectionList
+          title="Ostatnio przeglądane"
+          data={data}
+          isLoading={false}
+        />
+        <SectionList title="Wybrane dla Ciebie" data={data} isLoading={false} />
+        <SectionList title="W Twojej okolicy" data={data} isLoading={false} />
+      </ScreenWrapper>
+    );
+  }
 };
 
 export default HomeScreen;

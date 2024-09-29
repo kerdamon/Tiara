@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { View, Text, ImageBackground, StyleSheet } from 'react-native';
 import { Colors, Paddings } from '../styles/styles';
 import { CormorantGaramond_700Bold, useFonts } from '@expo-google-fonts/cormorant-garamond';
-import * as SplashScreen from 'expo-splash-screen'; // Dodaj import splash screen
+import * as SplashScreen from 'expo-splash-screen';
 
 interface ScreenWrapperProps {
   title: string;
