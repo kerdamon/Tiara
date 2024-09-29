@@ -1,42 +1,45 @@
-import { IUser, User } from "@/models/user.js";
 import crypto from "crypto";
 import { Request, Response } from "express";
 import jsonwebtoken from "jsonwebtoken";
-import { MongooseError } from "mongoose";
-
 import { privateRsaKey } from "@/utils.js";
+import { PrismaClient, User } from "@prisma/client";
+
+const prisma = new PrismaClient();
 
 export async function register(req: Request, res: Response) {
   console.log(`register`);
   console.log(req.body);
   try {
     const { salt, passwordHash } = generatePasswordHash(req.body.password);
-    const user = await User.create({
-      email: req.body.email,
-      passwordHash,
-      salt,
+    const user = await prisma.user.create({
+      data: {
+        email: req.body.email,
+        passwordHash,
+        salt,
+      },
     });
     return res.status(201).json({
       email: user.email,
-      id: user._id,
+      id: user.id,
     });
   } catch (error) {
-    const message =
-      error instanceof MongooseError ? error.message : String(error);
+    const message = String(error);
     return res.status(400).json({ message });
   }
 }
 
 export async function login(req: Request, res: Response) {
-  console.log(`login`);
-  console.log(req.body);
-  const user = await User.findOne<IUser>({ email: req.body.email });
+  const user = await prisma.user.findFirst({
+    where: {
+      email: req.body.email,
+    },
+  });
   if (!user) return res.status(404).json({ message: "User not found" });
 
   const isValid = validatePasswordHash(
     req.body.password,
     user.salt,
-    user.passwordHash
+    user.passwordHash,
   );
   if (!isValid) return res.status(401).json({ message: "Invalid password" });
 
@@ -45,9 +48,9 @@ export async function login(req: Request, res: Response) {
   return res.status(200).json({ data: token });
 }
 
-function signJWT(user: IUser) {
+function signJWT(user: User) {
   const payload = {
-    id: user._id,
+    id: user.id,
     at: Date.now(),
   };
 

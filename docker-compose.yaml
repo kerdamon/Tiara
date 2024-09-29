@@ -2,16 +2,19 @@ volumes:
   mongo_data:
 
 services:
-  mongo:
-    image: mongo
+  postgres:
+    hostname: postgres
+    image: ankane/pgvector
+    ports:
+      - 5432:5432
     restart: always
     environment:
-      MONGO_INITDB_ROOT_USERNAME: "${MONGO_ADMIN_USERNAME}"
-      MONGO_INITDB_ROOT_PASSWORD: "${MONGO_ADMIN_PASSWORD}"
-    ports:
-      - "27017:27017"
-    volumes:
-      - mongo_data:/data/db
+      - POSTGRES_DB=tiara
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=admin
+      - POSTGRES_HOST_AUTH_METHOD=trust
+    # volumes:
+    #  - ./init.sql:/docker-entrypoint-initdb.d/init.sql
 
   # ml_service:
   #   build:
