@@ -34,6 +34,7 @@ model Major {
           timeOfLookingForJob   Float
           university            University  @relation(fields: [universityId], references: [id])
           universityId          Int
+          vector                Unsupported("vector")?
 }
 
 model User {
