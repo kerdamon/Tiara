@@ -27,6 +27,7 @@ def connection_factory():
     register_vector(conn)
     
     conn.execute('ALTER TABLE "Major" ADD COLUMN IF NOT EXISTS vector vector(384)')
+    conn.execute('CREATE TABLE IF NOT EXISTS embeddings (id bigserial PRIMARY KEY, embedding vector(384))')
     return conn
 
 

@@ -20,8 +20,17 @@ def insert_major(major):
     embedding = SentenceLatentizer.encode(str(major))  # Create the embedding
     with connection_factory() as conn:
         #cur = conn.cursor()
-        print(embedding)
-        conn.execute('INSERT INTO "Major" (vector) VALUES (%s)', (embedding, ))
+        print(embedding.shape)
+        conn.execute('INSERT INTO "embeddings" (id, embedding) VALUES (%s, %s)', (major.id, embedding))
+        conn.execute('''
+            INSERT INTO "Major" (
+                id, majorname, studyfield, studylevel, voivodeship, studyform, studyprofile, semesters, faculty, numberofgraduates, employmentsalary, timeoflookingforjob, universityid, description, ranking, vector
+            ) VALUES (
+                %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s
+            )
+        ''', (
+            major.id, major.majorName, major.studyField, major.studyLevel, major.voivodeship, major.studyForm, major.studyProfile, major.semesters, major.faculty, major.numberOfGraduates, major.employmentSalary, major.timeOfLookingForJob, major.universityId, major.description, major.ranking, embedding.tolist()
+        ))
         #conn.commit()
 
 def main():
