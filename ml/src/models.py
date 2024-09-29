@@ -19,7 +19,7 @@ class Major(BaseModel):
     numberOfGraduates: int
     employmentSalary: float
     timeOfLookingForJob: float
-    universityId: int
+    universityId: int #czemu int, przecież ci dałem stringa institutionName
 
     def __str__(self):
         return (
