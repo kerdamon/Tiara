@@ -1,5 +1,6 @@
 export interface IMajor {
   name: string;
+  description: string;
   university: string;
   faculty?: string;
   studyField: string;
@@ -8,11 +9,9 @@ export interface IMajor {
   studyForm: string;
   studyProfile: string;
   semesters: string;
-  city: string;
   numberOfGraduates: number;
   jobSearchTime: number; // time spent looking for a full-time job in months
-  rank: number; // position in perspektywy.pl ranking
-  unemploymentPercent: number; // % unemployment in first year after graduation
+  rank: number;
   imageUrl: string;
   employmentSalary: number;
 }
