@@ -29,8 +29,6 @@ const CardItem: React.FC<CardItemProps> = ({
     WorkSans_600SemiBold,
   });
 
-  console.error(`IMAGE_URI: ${imageUri}`);
-
   return (
     <View style={styles.card}>
       <View style={styles.imageContainer}>
