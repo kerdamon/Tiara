@@ -1,21 +1,28 @@
+import { IMajor } from '@common/interfaces/IMajor';
+import { AxiosResponse } from 'axios';
 import React from 'react';
-import { FlatList, Text, StyleSheet, View } from 'react-native';
+import { FlatList, StyleSheet, Text, View } from 'react-native';
+import { Paddings } from '../styles/styles';
 import CardItem from './CardItem';
-import { Paddings, Colors, Layout } from '../styles/styles';
 
 interface SectionListProps {
   title: string;
-  data: any[];
+  data?: AxiosResponse<IMajor[]>;
+  isLoading: boolean;
 }
 
-const SectionList: React.FC<SectionListProps> = ({ title, data }) => {
-  const renderItem = ({ item }: any) => (
+const SectionList: React.FC<SectionListProps> = ({
+  title,
+  data,
+  isLoading,
+}) => {
+  const renderItem = ({ item }: { item: IMajor }) => (
     <CardItem
-      title={item.title}
+      title={item.name}
       university={item.university}
-      location={item.location}
-      price={item.price}
-      image={item.image}
+      location={item.voivodeship}
+      price={item.employmentSalary}
+      image={item.imageUrl}
     />
   );
 
@@ -23,7 +30,7 @@ const SectionList: React.FC<SectionListProps> = ({ title, data }) => {
     <View>
       <Text style={styles.sectionTitle}>{title}</Text>
       <FlatList
-        data={data}
+        data={data?.data}
         horizontal
         renderItem={renderItem}
         keyExtractor={(item, index) => index.toString()}
