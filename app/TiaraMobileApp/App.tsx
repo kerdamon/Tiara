@@ -70,7 +70,6 @@ export default function App() {
     </PaperProvider>
   );
 }
-
 function HomeTab() {
   return (
     <Stack.Navigator initialRouteName={SCREEN_NAMES.HOME}>

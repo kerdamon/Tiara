@@ -14,7 +14,7 @@ interface CardItemProps {
   university: string;
   location: string;
   price: number;
-  image: any;
+  imageUri: string;
 }
 
 const CardItem: React.FC<CardItemProps> = ({
@@ -22,16 +22,19 @@ const CardItem: React.FC<CardItemProps> = ({
   university,
   location,
   price,
-  image,
+  imageUri,
 }) => {
   const [fontsLoaded] = useFonts({
     WorkSans_500Medium,
     WorkSans_600SemiBold,
   });
+
+  console.error(`IMAGE_URI: ${imageUri}`);
+
   return (
     <View style={styles.card}>
       <View style={styles.imageContainer}>
-        <Image source={image} style={styles.image} />
+        <Image source={{ uri: imageUri }} style={styles.image} />
         <LinearGradient
           colors={[
             'rgba(0, 0, 0, 0)',
