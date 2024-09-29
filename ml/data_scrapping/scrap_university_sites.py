@@ -1,4 +1,7 @@
 import requests
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+import json
 
 #AGH - wyciągnąć ze strony https://rekrutacja.agh.edu.pl/kierunki-studiow/ i na tej bazie budować link do konkretnego kierunku
 
@@ -20,9 +23,24 @@ def get_agh_link(field_of_study):
 
 
 if __name__ == "__main__":
+    
+    target_file = '/home/ppjotrek/Python/hackyeah24/ml/data/input/agh.json'
+    
+    agh_dict = {}
+
+    
     for field in fields_of_study_agh:
         link = get_agh_link(field)
-        response = requests.get(link)
-        print(link)
-        print(response.status_code)
+        driver = webdriver.Chrome()
+        driver.get(link)   
+        content = driver.find_element(By.CLASS_NAME, "site")
+        agh_dict[field] = content.text
+        print(field)
+            
+        driver.quit()
+
+            
+    with open(target_file, 'a', encoding='utf8') as f:
+        f.write(json.dumps(agh_dict, ensure_ascii=False, indent=2) + '\n')  
+        
         

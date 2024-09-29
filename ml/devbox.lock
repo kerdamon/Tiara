@@ -89,12 +89,13 @@
     },
     "python@3.10.14": {
       "last_modified": "2024-09-10T15:01:03Z",
+      "plugin_version": "0.0.4",
       "resolved": "github:NixOS/nixpkgs/5ed627539ac84809c78b2dd6d26a5cebeb5ae269#python310",
       "source": "devbox-search",
       "version": "3.10.14"
     },
     "stdenv.cc.cc.lib": {
-      "resolved": "github:NixOS/nixpkgs/f80ac848e3d6f0c12c52758c0f25c10c97ca3b62#stdenv.cc.cc.lib",
+      "resolved": "github:NixOS/nixpkgs/75a52265bda7fd25e06e3a67dee3f0354e73243c#stdenv.cc.cc.lib",
       "source": "nixpkg"
     },
     "uv@0.4.11": {
