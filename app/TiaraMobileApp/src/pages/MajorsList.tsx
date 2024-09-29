@@ -7,99 +7,7 @@ import { FlatList, StyleSheet, View } from 'react-native';
 import CardItem from '../components/CardItemHorizontal';
 import SearchBox from '../components/SearchBox';
 import { Colors } from '../styles/styles';
-
-const dataasdf = [
-  {
-    title: 'Informatyka',
-    university: 'Politechnika Śląska',
-    location: 'Gliwice',
-    duration: '6 mies',
-    ranking: '23 w Techniczne',
-    mode: 'Dzienne',
-    price: '7600 zł',
-    image: require('../../assets/newCard.png'),
-  },
-  {
-    title: 'Informatyka',
-    university: 'Politechnika Śląska',
-    location: 'Gliwice',
-    duration: '6 mies',
-    ranking: '23 w Techniczne',
-    mode: 'Dzienne',
-    price: '7600 zł',
-    image: require('../../assets/newCard.png'),
-  },
-  {
-    title: 'Informatyka',
-    university: 'Politechnika Śląska',
-    location: 'Gliwice',
-    duration: '6 mies',
-    ranking: '23 w Techniczne',
-    mode: 'Dzienne',
-    price: '7600 zł',
-    image: require('../../assets/newCard.png'),
-  },
-  {
-    title: 'Informatyka',
-    university: 'Politechnika Śląska',
-    location: 'Gliwice',
-    duration: '6 mies',
-    ranking: '23 w Techniczne',
-    mode: 'Dzienne',
-    price: '7600 zł',
-    image: require('../../assets/newCard.png'),
-  },
-  {
-    title: 'Informatyka',
-    university: 'Politechnika Śląska',
-    location: 'Gliwice',
-    duration: '6 mies',
-    ranking: '23 w Techniczne',
-    mode: 'Dzienne',
-    price: '7600 zł',
-    image: require('../../assets/newCard.png'),
-  },
-  {
-    title: 'Informatyka',
-    university: 'Politechnika Śląska',
-    location: 'Gliwice',
-    duration: '6 mies',
-    ranking: '23 w Techniczne',
-    mode: 'Dzienne',
-    price: '7600 zł',
-    image: require('../../assets/newCard.png'),
-  },
-  {
-    title: 'Informatyka',
-    university: 'Politechnika Śląska',
-    location: 'Gliwice',
-    duration: '6 mies',
-    ranking: '23 w Techniczne',
-    mode: 'Dzienne',
-    price: '7600 zł',
-    image: require('../../assets/newCard.png'),
-  },
-  {
-    title: 'Informatyka',
-    university: 'Politechnika Śląska',
-    location: 'Gliwice',
-    duration: '6 mies',
-    ranking: '23 w Techniczne',
-    mode: 'Dzienne',
-    price: '7600 zł',
-    image: require('../../assets/newCard.png'),
-  },
-  {
-    title: 'Informatyka',
-    university: 'Politechnika Śląska',
-    location: 'Gliwice',
-    duration: '6 mies',
-    ranking: '23 w Techniczne',
-    mode: 'Dzienne',
-    price: '7600 zł',
-    image: require('../../assets/newCard.png'),
-  },
-];
+import FilterComponent from '../components/FilterComponent';
 
 const MajorsList = () => {
   const { data, isFetching } = useQuery({
@@ -122,39 +30,38 @@ const MajorsList = () => {
 
   const [filteredData, setFilteredData] = useState(data);
 
-  // const applyFilters = (filters: any) => {
-  //   const filtered = data.filter((item) => {
-  //     const universityMatch =
-  //       !filters.university.length ||
-  //       filters.university.includes(item.university);
-  //     const cityMatch =
-  //       !filters.city.length || filters.city.includes(item.location);
-  //     const studyFormMatch =
-  //       !filters.studyForm.length || filters.studyForm.includes(item.mode);
-  //     const moneyMatch =
-  //       item.price.replace(' zł', '') >= filters.moneyValue[0] &&
-  //       item.price.replace(' zł', '') <= filters.moneyValue[1];
-  //     const rankingMatch =
-  //       item.ranking >= filters.rankPerspective[0] &&
-  //       item.ranking <= filters.rankPerspective[1];
+  const applyFilters = (filters: any) => {
+    if (data) {
+      const filtered = data?.data.filter((item) => {
+        const universityMatch =
+          !filters.university.length ||
+          filters.university.includes(item.university);
+        const cityMatch =
+          !filters.city.length || filters.city.includes(item.voivodeship);
+        const moneyMatch =
+          item.employmentSalary>= filters.moneyValue[0] &&
+          item.employmentSalary <= filters.moneyValue[1];
+        const rankingMatch =
+          item.rank >= filters.rankPerspective[0] &&
+          item.rank <= filters.rankPerspective[1];
 
-  //     return (
-  //       universityMatch &&
-  //       cityMatch &&
-  //       studyFormMatch &&
-  //       moneyMatch &&
-  //       rankingMatch
-  //     );
-  //   });
+        return (
+          universityMatch &&
+          cityMatch &&
+          moneyMatch &&
+          rankingMatch
+        );
+      });
 
-  //   setFilteredData(filtered);
-  // };
+      // setFilteredData(filtered);
+    }
+  };
 
   return (
     <View style={styles.container}>
       <View style={styles.searchContainer}>
         <SearchBox />
-        {/* <FilterComponent onApplyFilter={applyFilters} /> */}
+        <FilterComponent onApplyFilter={applyFilters} />
         <View style={styles.horizontalLine} />
       </View>
 
