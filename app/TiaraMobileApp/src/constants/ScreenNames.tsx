@@ -3,6 +3,7 @@ const SCREEN_NAMES = {
   DETAILS: 'Details',
   PROFILE: 'Profile',
   SETTINGS: 'Settings',
+  CATALOGUE: 'Catalogue',
 };
 
 export default SCREEN_NAMES;
