@@ -12,5 +12,6 @@ export class MajorRouter {
 
   private registerRoutes(): void {
     this.router.post("/", this.controller.getMajorsByPrompt);
+    this.router.get("/", this.controller.getAllMajors);
   }
 }

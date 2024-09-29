@@ -1,4 +1,4 @@
-import { Major } from "@common/interfaces/Major.js";
+import {PrismaClient, Major} from "@prisma/client";
 
 export interface MajorService {
   /**
@@ -7,60 +7,25 @@ export interface MajorService {
    */
 
   getMajorsByQuery(query: string): Promise<Major[]>;
+
+  getAllMajors(): Promise<Major[]>;
 }
 
 export class MockMajorServiceImpl implements MajorService {
+  prismaClient: PrismaClient;
+
+  constructor(prismaClient: PrismaClient) {
+    this.prismaClient = prismaClient;
+  }
+
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   getMajorsByQuery(query: string): Promise<Major[]> {
-    return Promise.resolve([
-      {
-        name: "Informatyka",
-        university: "Akademia Górniczo Hutnicza",
-        imageUrl:
-          "https://www.google.com/imgres?q=goatse&imgurl=https%3A%2F%2Fpreview.redd.it%2Fr2p4k92x2ah71.png%3Fwidth%3D680%26format%3Dpng%26auto%3Dwebp%26s%3D63d3cd99a011cb77cb9e8cf4b15f23d21c653488&imgrefurl=https%3A%2F%2Fwww.reddit.com%2Fr%2Fquake%2Fcomments%2Fp43q20%2Fgoatse_map_name_please%2F&docid=JCHNfYZiliL4HM&tbnid=pE1cwPl81H_UjM&w=680&h=510&hcb=2",
-        faculty: "Wiet",
-        city: "Kraków",
-        numberOfGraduates: 150,
-        jobSearchTime: 35,
-        rank: 1,
-        unemploymentPercent: 30,
-      },
-      {
-        name: "Prawo",
-        university: "Uniwersytet Jagielloński",
-        imageUrl:
-          "https://www.google.com/imgres?q=goatse&imgurl=https%3A%2F%2Fpreview.redd.it%2Fr2p4k92x2ah71.png%3Fwidth%3D680%26format%3Dpng%26auto%3Dwebp%26s%3D63d3cd99a011cb77cb9e8cf4b15f23d21c653488&imgrefurl=https%3A%2F%2Fwww.reddit.com%2Fr%2Fquake%2Fcomments%2Fp43q20%2Fgoatse_map_name_please%2F&docid=JCHNfYZiliL4HM&tbnid=pE1cwPl81H_UjM&w=680&h=510&hcb=2",
-        faculty: "asdf",
-        city: "Kraków",
-        numberOfGraduates: 150,
-        jobSearchTime: 35,
-        rank: 1,
-        unemploymentPercent: 30,
-      },
-      {
-        name: "Informatyka Techniczna",
-        university: "Akademia Górniczo Hutnicza",
-        imageUrl:
-          "https://www.google.com/imgres?q=goatse&imgurl=https%3A%2F%2Fpreview.redd.it%2Fr2p4k92x2ah71.png%3Fwidth%3D680%26format%3Dpng%26auto%3Dwebp%26s%3D63d3cd99a011cb77cb9e8cf4b15f23d21c653488&imgrefurl=https%3A%2F%2Fwww.reddit.com%2Fr%2Fquake%2Fcomments%2Fp43q20%2Fgoatse_map_name_please%2F&docid=JCHNfYZiliL4HM&tbnid=pE1cwPl81H_UjM&w=680&h=510&hcb=2",
-        faculty: "asdf",
-        city: "Kraków",
-        numberOfGraduates: 150,
-        jobSearchTime: 35,
-        rank: 1,
-        unemploymentPercent: 30,
-      },
-      {
-        name: "Botanika",
-        university: "Uniwersytet Rolniczy w Krakowie",
-        imageUrl:
-          "https://www.google.com/imgres?q=goatse&imgurl=https%3A%2F%2Fpreview.redd.it%2Fr2p4k92x2ah71.png%3Fwidth%3D680%26format%3Dpng%26auto%3Dwebp%26s%3D63d3cd99a011cb77cb9e8cf4b15f23d21c653488&imgrefurl=https%3A%2F%2Fwww.reddit.com%2Fr%2Fquake%2Fcomments%2Fp43q20%2Fgoatse_map_name_please%2F&docid=JCHNfYZiliL4HM&tbnid=pE1cwPl81H_UjM&w=680&h=510&hcb=2",
-        faculty: "asdf",
-        city: "Kraków",
-        numberOfGraduates: 150,
-        jobSearchTime: 35,
-        rank: 1,
-        unemploymentPercent: 30,
-      },
-    ]);
+    return this.prismaClient.major.findMany({
+      take: 5
+    })
+  }
+
+  getAllMajors(): Promise<Major[]> {
+    return this.prismaClient.major.findMany();
   }
 }
