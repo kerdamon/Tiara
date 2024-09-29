@@ -1,172 +1,344 @@
 {
-    "13860": {
-        "majorExternalCode": "13860",
-        "majorName": "Executive Master of Business Administration",
-        "institutionName": "Uniwersytet Ekonomiczny we Wrocławiu",
-        "studyField": "Dziedzina nauk społecznych",
-        "studyLevel": "II stopnia",
-        "voivodeship": "Dolnośląskie",
-        "studyForm": "Niestacjonarne",
-        "studyProfile": "profil ogólnoakademicki",
-        "semesters": "4-semestralne",
-        "faculty": "",
-        "numberOfGraduates": 16,
-        "employmentData": {
-            "salary": 24133.06,
-            "timeOfLookingForJob": 1.31
-        }
+  "13860": {
+    "majorExternalCode": "13860",
+    "majorName": "Executive Master of Business Administration",
+    "institutionName": "Uniwersytet Ekonomiczny we Wrocławiu",
+    "studyField": "Dziedzina nauk społecznych",
+    "studyLevel": "II stopnia",
+    "voivodeship": "Dolnośląskie",
+    "studyForm": "Niestacjonarne",
+    "studyProfile": "profil ogólnoakademicki",
+    "semesters": "4-semestralne",
+    "faculty": "",
+    "numberOfGraduates": 16,
+    "employmentData": {
+      "salary": 24133.06,
+      "timeOfLookingForJob": 1.31
     },
-    "13859": {
-        "majorExternalCode": "13859",
-        "majorName": "Executive Master of Business Administration",
-        "institutionName": "Uniwersytet Ekonomiczny we Wrocławiu",
-        "studyField": "Dziedzina nauk społecznych",
-        "studyLevel": "II stopnia",
-        "voivodeship": "Dolnośląskie",
-        "studyForm": "Niestacjonarne",
-        "studyProfile": "profil ogólnoakademicki",
-        "semesters": "4-semestralne",
-        "faculty": "",
-        "numberOfGraduates": 28,
-        "employmentData": {
-            "salary": 16739.28,
-            "timeOfLookingForJob": 0.57
-        }
+    "description": "Tu powinien być opis ze strony uczelni",
+    "ranking": -1
+  },
+  "13859": {
+    "majorExternalCode": "13859",
+    "majorName": "Executive Master of Business Administration",
+    "institutionName": "Uniwersytet Ekonomiczny we Wrocławiu",
+    "studyField": "Dziedzina nauk społecznych",
+    "studyLevel": "II stopnia",
+    "voivodeship": "Dolnośląskie",
+    "studyForm": "Niestacjonarne",
+    "studyProfile": "profil ogólnoakademicki",
+    "semesters": "4-semestralne",
+    "faculty": "",
+    "numberOfGraduates": 28,
+    "employmentData": {
+      "salary": 16739.28,
+      "timeOfLookingForJob": 0.57
     },
-    "7951": {
-        "majorExternalCode": "7951",
-        "majorName": "Informatyka analityczna",
-        "institutionName": "Uniwersytet Jagielloński w Krakowie",
-        "studyField": "Dziedzina nauk ścisłych i przyrodniczych",
-        "studyLevel": "II stopnia",
-        "voivodeship": "Małopolskie",
-        "studyForm": "Stacjonarne",
-        "studyProfile": "profil ogólnoakademicki",
-        "semesters": "4-semestralne",
-        "faculty": "",
-        "numberOfGraduates": 13,
-        "employmentData": {
-            "salary": 13322.65,
-            "timeOfLookingForJob": 1.86
-        }
+    "description": "Tu powinien być opis ze strony uczelni",
+    "ranking": -1
+  },
+  "7951": {
+    "majorExternalCode": "7951",
+    "majorName": "Informatyka analityczna",
+    "institutionName": "Uniwersytet Jagielloński w Krakowie",
+    "studyField": "Dziedzina nauk ścisłych i przyrodniczych",
+    "studyLevel": "II stopnia",
+    "voivodeship": "Małopolskie",
+    "studyForm": "Stacjonarne",
+    "studyProfile": "profil ogólnoakademicki",
+    "semesters": "4-semestralne",
+    "faculty": "",
+    "numberOfGraduates": 13,
+    "employmentData": {
+      "salary": 13322.65,
+      "timeOfLookingForJob": 1.86
     },
-    "12779": {
-        "majorExternalCode": "12779",
-        "majorName": "Informatyka stosowana",
-        "institutionName": "Uniwersytet Jagielloński w Krakowie",
-        "studyField": "Dziedzina nauk ścisłych i przyrodniczych",
-        "studyLevel": "II stopnia",
-        "voivodeship": "Małopolskie",
-        "studyForm": "Niestacjonarne",
-        "studyProfile": "profil ogólnoakademicki",
-        "semesters": "4-semestralne",
-        "faculty": "",
-        "numberOfGraduates": 15,
-        "employmentData": {
-            "salary": 13697.51,
-            "timeOfLookingForJob": 0.0
-        }
+    "description": "Tu powinien być opis ze strony uczelni",
+    "ranking": -1
+  },
+  "12779": {
+    "majorExternalCode": "12779",
+    "majorName": "Informatyka stosowana",
+    "institutionName": "Uniwersytet Jagielloński w Krakowie",
+    "studyField": "Dziedzina nauk ścisłych i przyrodniczych",
+    "studyLevel": "II stopnia",
+    "voivodeship": "Małopolskie",
+    "studyForm": "Niestacjonarne",
+    "studyProfile": "profil ogólnoakademicki",
+    "semesters": "4-semestralne",
+    "faculty": "",
+    "numberOfGraduates": 15,
+    "employmentData": {
+      "salary": 13697.51,
+      "timeOfLookingForJob": 0.0
     },
-    "2017": {
-        "majorExternalCode": "2017",
-        "majorName": "Informatyka",
-        "institutionName": "Politechnika Gdańska",
-        "studyField": "Dziedzina nauk inżynieryjno-technicznych",
-        "studyLevel": "II stopnia",
-        "voivodeship": "Pomorskie",
-        "studyForm": "Niestacjonarne",
-        "studyProfile": "profil ogólnoakademicki",
-        "semesters": "4-semestralne",
-        "faculty": "Wydział Elektroniki, Telekomunikacji i Informatyki",
-        "numberOfGraduates": 42,
-        "employmentData": {
-            "salary": 14929.84,
-            "timeOfLookingForJob": 0.69
-        }
+    "description": "Tu powinien być opis ze strony uczelni",
+    "ranking": -1
+  },
+  "2017": {
+    "majorExternalCode": "2017",
+    "majorName": "Informatyka",
+    "institutionName": "Politechnika Gdańska",
+    "studyField": "Dziedzina nauk inżynieryjno-technicznych",
+    "studyLevel": "II stopnia",
+    "voivodeship": "Pomorskie",
+    "studyForm": "Niestacjonarne",
+    "studyProfile": "profil ogólnoakademicki",
+    "semesters": "4-semestralne",
+    "faculty": "Wydział Elektroniki, Telekomunikacji i Informatyki",
+    "numberOfGraduates": 42,
+    "employmentData": {
+      "salary": 14929.84,
+      "timeOfLookingForJob": 0.69
     },
-    "5182": {
-        "majorExternalCode": "5182",
-        "majorName": "Informatyka",
-        "institutionName": "Uniwersytet Wrocławski",
-        "studyField": "Dziedzina nauk ścisłych i przyrodniczych",
-        "studyLevel": "II stopnia",
-        "voivodeship": "Dolnośląskie",
-        "studyForm": "Stacjonarne",
-        "studyProfile": "profil ogólnoakademicki",
-        "semesters": "4-semestralne",
-        "faculty": "Wydział Matematyki i Informatyki",
-        "numberOfGraduates": 13,
-        "employmentData": {
-            "salary": 15912.52,
-            "timeOfLookingForJob": 2.75
-        }
+    "description": "Tu powinien być opis ze strony uczelni",
+    "ranking": -1
+  },
+  "5182": {
+    "majorExternalCode": "5182",
+    "majorName": "Informatyka",
+    "institutionName": "Uniwersytet Wrocławski",
+    "studyField": "Dziedzina nauk ścisłych i przyrodniczych",
+    "studyLevel": "II stopnia",
+    "voivodeship": "Dolnośląskie",
+    "studyForm": "Stacjonarne",
+    "studyProfile": "profil ogólnoakademicki",
+    "semesters": "4-semestralne",
+    "faculty": "Wydział Matematyki i Informatyki",
+    "numberOfGraduates": 13,
+    "employmentData": {
+      "salary": 15912.52,
+      "timeOfLookingForJob": 2.75
     },
-    "9649": {
-        "majorExternalCode": "9649",
-        "majorName": "Informatyka",
-        "institutionName": "Politechnika Warszawska",
-        "studyField": "Dziedzina nauk inżynieryjno-technicznych",
-        "studyLevel": "II stopnia",
-        "voivodeship": "Mazowieckie",
-        "studyForm": "Niestacjonarne",
-        "studyProfile": "profil ogólnoakademicki",
-        "semesters": "4-semestralne",
-        "faculty": "",
-        "numberOfGraduates": 25,
-        "employmentData": {
-            "salary": 13931.64,
-            "timeOfLookingForJob": 0.0
-        }
+    "description": "Tu powinien być opis ze strony uczelni",
+    "ranking": -1
+  },
+  "9649": {
+    "majorExternalCode": "9649",
+    "majorName": "Informatyka",
+    "institutionName": "Politechnika Warszawska",
+    "studyField": "Dziedzina nauk inżynieryjno-technicznych",
+    "studyLevel": "II stopnia",
+    "voivodeship": "Mazowieckie",
+    "studyForm": "Niestacjonarne",
+    "studyProfile": "profil ogólnoakademicki",
+    "semesters": "4-semestralne",
+    "faculty": "",
+    "numberOfGraduates": 25,
+    "employmentData": {
+      "salary": 13931.64,
+      "timeOfLookingForJob": 0.0
     },
-    "9025": {
-        "majorExternalCode": "9025",
-        "majorName": "Informatyka Stosowana",
-        "institutionName": "Politechnika Warszawska",
-        "studyField": "Dziedzina nauk inżynieryjno-technicznych",
-        "studyLevel": "II stopnia",
-        "voivodeship": "Mazowieckie",
-        "studyForm": "Niestacjonarne",
-        "studyProfile": "profil ogólnoakademicki",
-        "semesters": "4-semestralne",
-        "faculty": "Wydział Elektryczny",
-        "numberOfGraduates": 74,
-        "employmentData": {
-            "salary": 14719.6,
-            "timeOfLookingForJob": 0.14
-        }
+    "description": "Tu powinien być opis ze strony uczelni",
+    "ranking": -1
+  },
+  "9025": {
+    "majorExternalCode": "9025",
+    "majorName": "Informatyka Stosowana",
+    "institutionName": "Politechnika Warszawska",
+    "studyField": "Dziedzina nauk inżynieryjno-technicznych",
+    "studyLevel": "II stopnia",
+    "voivodeship": "Mazowieckie",
+    "studyForm": "Niestacjonarne",
+    "studyProfile": "profil ogólnoakademicki",
+    "semesters": "4-semestralne",
+    "faculty": "Wydział Elektryczny",
+    "numberOfGraduates": 74,
+    "employmentData": {
+      "salary": 14719.6,
+      "timeOfLookingForJob": 0.14
     },
-    "6318": {
-        "majorExternalCode": "6318",
-        "majorName": "Informatyka",
-        "institutionName": "Uniwersytet Gdański",
-        "studyField": "Dziedzina nauk ścisłych i przyrodniczych",
-        "studyLevel": "II stopnia",
-        "voivodeship": "Pomorskie",
-        "studyForm": "Niestacjonarne",
-        "studyProfile": "profil ogólnoakademicki",
-        "semesters": "4-semestralne",
-        "faculty": "Wydział Matematyki, Fizyki i Informatyki",
-        "numberOfGraduates": 18,
-        "employmentData": {
-            "salary": 13144.77,
-            "timeOfLookingForJob": 0.0
-        }
+    "description": "Tu powinien być opis ze strony uczelni",
+    "ranking": -1
+  },
+  "6318": {
+    "majorExternalCode": "6318",
+    "majorName": "Informatyka",
+    "institutionName": "Uniwersytet Gdański",
+    "studyField": "Dziedzina nauk ścisłych i przyrodniczych",
+    "studyLevel": "II stopnia",
+    "voivodeship": "Pomorskie",
+    "studyForm": "Niestacjonarne",
+    "studyProfile": "profil ogólnoakademicki",
+    "semesters": "4-semestralne",
+    "faculty": "Wydział Matematyki, Fizyki i Informatyki",
+    "numberOfGraduates": 18,
+    "employmentData": {
+      "salary": 13144.77,
+      "timeOfLookingForJob": 0.0
     },
-    "3580": {
-        "majorExternalCode": "3580",
-        "majorName": "Informatyka",
-        "institutionName": "Uniwersytet im. Adama Mickiewicza w Poznaniu",
-        "studyField": "Dziedzina nauk ścisłych i przyrodniczych",
-        "studyLevel": "II stopnia",
-        "voivodeship": "Wielkopolskie",
-        "studyForm": "Niestacjonarne",
-        "studyProfile": "profil ogólnoakademicki",
-        "semesters": "3-semestralne",
-        "faculty": "Wydział Matematyki i Informatyki",
-        "numberOfGraduates": 28,
-        "employmentData": {
-            "salary": 12779.76,
-            "timeOfLookingForJob": 0.17
-        }
-    }
+    "description": "Tu powinien być opis ze strony uczelni",
+    "ranking": -1
+  },
+  "3580": {
+    "majorExternalCode": "3580",
+    "majorName": "Informatyka",
+    "institutionName": "Uniwersytet im. Adama Mickiewicza w Poznaniu",
+    "studyField": "Dziedzina nauk ścisłych i przyrodniczych",
+    "studyLevel": "II stopnia",
+    "voivodeship": "Wielkopolskie",
+    "studyForm": "Niestacjonarne",
+    "studyProfile": "profil ogólnoakademicki",
+    "semesters": "3-semestralne",
+    "faculty": "Wydział Matematyki i Informatyki",
+    "numberOfGraduates": 28,
+    "employmentData": {
+      "salary": 12779.76,
+      "timeOfLookingForJob": 0.17
+    },
+    "description": "Tu powinien być opis ze strony uczelni",
+    "ranking": -1
+  },
+  "3709": {
+    "majorExternalCode": "3709",
+    "majorName": "Informatyka stosowana",
+    "institutionName": "Uniwersytet Ekonomiczny w Krakowie",
+    "studyField": "Dziedzina nauk społecznych",
+    "studyLevel": "II stopnia",
+    "voivodeship": "Małopolskie",
+    "studyForm": "Niestacjonarne",
+    "studyProfile": "profil ogólnoakademicki",
+    "semesters": "4-semestralne",
+    "faculty": "",
+    "numberOfGraduates": 46,
+    "employmentData": {
+      "salary": 13495.13,
+      "timeOfLookingForJob": 0.03
+    },
+    "description": "Tu powinien być opis ze strony uczelni",
+    "ranking": -1
+  },
+  "3140": {
+    "majorExternalCode": "3140",
+    "majorName": "Informatyka",
+    "institutionName": "Szkoła Główna Gospodarstwa Wiejskiego w Warszawie",
+    "studyField": "Dziedzina nauk inżynieryjno-technicznych",
+    "studyLevel": "II stopnia",
+    "voivodeship": "Mazowieckie",
+    "studyForm": "Niestacjonarne",
+    "studyProfile": "profil ogólnoakademicki",
+    "semesters": "4-semestralne",
+    "faculty": "Wydział Zastosowań Informatyki i Matematyki",
+    "numberOfGraduates": 22,
+    "employmentData": {
+      "salary": 12252.73,
+      "timeOfLookingForJob": 1.0
+    },
+    "description": "Tu powinien być opis ze strony uczelni",
+    "ranking": -1
+  },
+  "2694": {
+    "majorExternalCode": "2694",
+    "majorName": "Górnictwo i geologia",
+    "institutionName": "Politechnika Wrocławska",
+    "studyField": "Dziedzina nauk inżynieryjno-technicznych",
+    "studyLevel": "I stopnia",
+    "voivodeship": "Dolnośląskie",
+    "studyForm": "Niestacjonarne",
+    "studyProfile": "profil ogólnoakademicki",
+    "semesters": "8-semestralne",
+    "faculty": "Wydział Geoinżynierii, Górnictwa i Geologii",
+    "numberOfGraduates": 10,
+    "employmentData": {
+      "salary": 11234.22,
+      "timeOfLookingForJob": 0.5
+    },
+    "description": "Tu powinien być opis ze strony uczelni",
+    "ranking": -1
+  },
+  "15083": {
+    "majorExternalCode": "15083",
+    "majorName": "Informatyka",
+    "institutionName": "Wyższa Szkoła Informatyki Stosowanej i Zarządzania w Warszawie",
+    "studyField": "Dziedzina nauk inżynieryjno-technicznych",
+    "studyLevel": "II stopnia",
+    "voivodeship": "Mazowieckie",
+    "studyForm": "Niestacjonarne",
+    "studyProfile": "profil praktyczny",
+    "semesters": "4-semestralne",
+    "faculty": "",
+    "numberOfGraduates": 18,
+    "employmentData": {
+      "salary": 13163.92,
+      "timeOfLookingForJob": 0.08
+    },
+    "description": "Tu powinien być opis ze strony uczelni",
+    "ranking": -1
+  },
+  "14767": {
+    "majorExternalCode": "14767",
+    "majorName": "Bezpieczeństwo narodowe",
+    "institutionName": "Wyższa Szkoła Handlu i Usług w Poznaniu",
+    "studyField": "Dziedzina nauk społecznych",
+    "studyLevel": "II stopnia",
+    "voivodeship": "Wielkopolskie",
+    "studyForm": "Niestacjonarne",
+    "studyProfile": "profil praktyczny",
+    "semesters": "5-semestralne",
+    "faculty": "",
+    "numberOfGraduates": 13,
+    "employmentData": {
+      "salary": 11108.33,
+      "timeOfLookingForJob": 0.0
+    },
+    "description": "Tu powinien być opis ze strony uczelni",
+    "ranking": -1
+  },
+  "15080": {
+    "majorExternalCode": "15080",
+    "majorName": "Informatyczne techniki zarządzania",
+    "institutionName": "Wyższa Szkoła Informatyki Stosowanej i Zarządzania w Warszawie",
+    "studyField": "Dziedzina nauk inżynieryjno-technicznych",
+    "studyLevel": "I stopnia",
+    "voivodeship": "Mazowieckie",
+    "studyForm": "Niestacjonarne",
+    "studyProfile": "profil praktyczny",
+    "semesters": "7-semestralne",
+    "faculty": "",
+    "numberOfGraduates": 28,
+    "employmentData": {
+      "salary": 12848.21,
+      "timeOfLookingForJob": 0.82
+    },
+    "description": "Tu powinien być opis ze strony uczelni",
+    "ranking": -1
+  },
+  "7158": {
+    "majorExternalCode": "7158",
+    "majorName": "Pielęgniarstwo",
+    "institutionName": "Kujawska Szkoła Wyższa we Włocławku",
+    "studyField": "Dziedzina nauk medycznych i nauk o zdrowiu",
+    "studyLevel": "II stopnia",
+    "voivodeship": "Kujawsko-pomorskie",
+    "studyForm": "Niestacjonarne",
+    "studyProfile": "profil praktyczny",
+    "semesters": "4-semestralne",
+    "faculty": "Wydział Nauk o Zdrowiu",
+    "numberOfGraduates": 65,
+    "employmentData": {
+      "salary": 10182.16,
+      "timeOfLookingForJob": 0.24
+    },
+    "description": "Tu powinien być opis ze strony uczelni",
+    "ranking": -1
+  },
+  "4956": {
+    "majorExternalCode": "4956",
+    "majorName": "Informatyka stosowana",
+    "institutionName": "Politechnika Bydgoska im. Jana i Jędrzeja Śniadeckich",
+    "studyField": "Dziedzina nauk inżynieryjno-technicznych",
+    "studyLevel": "II stopnia",
+    "voivodeship": "Kujawsko-pomorskie",
+    "studyForm": "Niestacjonarne",
+    "studyProfile": "profil ogólnoakademicki",
+    "semesters": "3-semestralne",
+    "faculty": "",
+    "numberOfGraduates": 13,
+    "employmentData": {
+      "salary": 10972.2,
+      "timeOfLookingForJob": 0.0
+    },
+    "description": "Tu powinien być opis ze strony uczelni",
+    "ranking": -1
+  }
 }
