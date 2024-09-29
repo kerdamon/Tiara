@@ -1,3 +1,8 @@
+import {
+  useFonts,
+  WorkSans_500Medium,
+  WorkSans_600SemiBold,
+} from '@expo-google-fonts/work-sans';
 import { LinearGradient } from 'expo-linear-gradient';
 import React from 'react';
 import { Image, StyleSheet, Text, View } from 'react-native';
@@ -19,6 +24,10 @@ const CardItem: React.FC<CardItemProps> = ({
   price,
   image,
 }) => {
+  const [fontsLoaded] = useFonts({
+    WorkSans_500Medium,
+    WorkSans_600SemiBold,
+  });
   return (
     <View style={styles.card}>
       <View style={styles.imageContainer}>
@@ -32,7 +41,9 @@ const CardItem: React.FC<CardItemProps> = ({
           style={styles.gradientOverlay}
         />
         <View style={styles.textOverlay}>
-          <Text style={[styles.title]}>{title}</Text>
+          <Text style={[styles.title, { fontFamily: 'WorkSans_700Bold' }]}>
+            {title}
+          </Text>
         </View>
       </View>
       <View style={styles.info}>
@@ -43,7 +54,11 @@ const CardItem: React.FC<CardItemProps> = ({
             color={Colors.cardText}
             style={styles.icon}
           />
-          <Text style={[styles.university]}>{university}</Text>
+          <Text
+            style={[styles.university, { fontFamily: 'WorkSans_500Medium' }]}
+          >
+            {university}
+          </Text>
         </View>
         <View style={styles.infoItem}>
           <MaterialIcons
@@ -52,7 +67,9 @@ const CardItem: React.FC<CardItemProps> = ({
             color={Colors.cardText}
             style={styles.icon}
           />
-          <Text style={[styles.location]}>{location}</Text>
+          <Text style={[styles.location, { fontFamily: 'WorkSans_500Medium' }]}>
+            {location}
+          </Text>
         </View>
         <View style={styles.infoItemPrice}>
           <MaterialIcons
@@ -61,7 +78,9 @@ const CardItem: React.FC<CardItemProps> = ({
             color={Colors.cardText}
             style={styles.iconPrice}
           />
-          <Text style={[styles.price]}>{price} zł</Text>
+          <Text style={[styles.price, { fontFamily: 'WorkSans_500Medium' }]}>
+            {price} zł
+          </Text>
         </View>
       </View>
     </View>
