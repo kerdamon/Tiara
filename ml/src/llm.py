@@ -1,12 +1,18 @@
 from fastapi import FastAPI, Query
 from pydantic import BaseModel
+from langchain.chains import RetrievalQA
+# from langchain.vectorstores.pgvector import PGVector
+from langchain.docstore.document import Document
 # from langchain.chains import RetrievalQA
 # from langchain.vectorstores import FAISS
-# from sentence_transformers import SentenceTransformer
+from sentence_transformers import SentenceTransformer
 # from langchain.docstore.document import Document
 # from langchain.llms import HuggingFacePipeline
 from transformers import AutoTokenizer, AutoModelForSeq2SeqLM, pipeline
+import psycopg
+import numpy as np
 import uvicorn
+from pydantic import BaseSettings
 
 # Initialize FastAPI
 app = FastAPI()
@@ -40,6 +46,45 @@ app = FastAPI()
 #     chain_type="stuff",
 #     retriever=faiss_index.as_retriever()
 # )
+class Settings(BaseSettings):
+    db_name: str
+    db_user: str
+    db_password: str
+    db_host: str
+
+    class Config:
+        env_file = ".env"
+
+settings = Settings()
+
+SentenceLatentizer = SentenceTransformer('sentence-transformers/all-MiniLM-L6-v2')
+conn = psycopg.connect(
+    dbname=settings.db_name, 
+    user=settings.db_user, 
+    password=settings.db_password, 
+    host=settings.db_host
+)
+
+# Function to query similar documents
+def query_similar_documents(query, top_k=5) -> list:
+    query_embedding = SentenceLatentizer.encode(query).astype(np.float32)
+    cur = conn.cursor()
+    cur.execute(
+        """
+        SELECT content FROM documents
+        ORDER BY embedding <-> %s
+        LIMIT %s;
+        """,
+        (query_embedding.tolist(), top_k)
+    )
+    return cur.fetchall()
+
+# Create a function to retrieve documents from Postgres based on vector similarity
+def retrieve_documents_from_postgres(query, top_k=5):
+    results = query_similar_documents(query, top_k)
+    # documents = [Document(page_content=res[0]) for res in results]
+    documents = [res.id for res in results]
+    return documents
 
 # API input model
 class QueryRequest(BaseModel):
@@ -53,12 +98,10 @@ def get_rag_answer(request: QueryRequest):
     query = request.query
     top_k = request.top_k
 
-    # Query the RAG pipeline
-    # answer = qa_chain.run(query)
-    answer = query
+    similar_documents = query_similar_documents(query, top_k)
 
     # Return the generated answer
-    return {"query": query, "answer": answer}
+    return {"top_k": similar_documents }
 
 
 # Health check route
