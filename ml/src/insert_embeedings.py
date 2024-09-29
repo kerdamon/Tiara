@@ -19,7 +19,7 @@ def insert_major(major):
     embedding = SentenceLatentizer.encode(major, convert_to_numpy=True).astype(np.float32)  # Create the embedding
     with connection_factory() as conn:
         cur = conn.cursor()
-        cur.execute("INSERT INTO Major (vector) VALUES (%s)", (embedding.tolist(),))
+        cur.execute('INSERT INTO "Major" (vector) VALUES (%s)', (embedding.tolist(),))
         conn.commit()
 
 def main():
@@ -30,7 +30,6 @@ def main():
         # field_text = json.dumps(field, ensure_ascii=False).encode('utf8')
         # print(field_text)
         field = "Test test test raz dwa trzy cztery."
-        print(field)
         # insert_major(Major(**field))
         insert_major(field)
         # doc_embedding = SentenceLatentizer.encode(field)
