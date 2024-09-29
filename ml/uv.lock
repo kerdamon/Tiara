@@ -1750,6 +1750,7 @@ dependencies = [
     { name = "matplotlib" },
     { name = "numpy" },
     { name = "pandas" },
+    { name = "pgvector" },
     { name = "psycopg" },
     { name = "psycopg-binary" },
     { name = "pydantic" },
@@ -1776,6 +1777,7 @@ requires-dist = [
     { name = "matplotlib", specifier = ">=3.9.2" },
     { name = "numpy", specifier = ">=2.1.1" },
     { name = "pandas", specifier = ">=2.2.3" },
+    { name = "pgvector", specifier = ">=0.3.4" },
     { name = "psycopg", specifier = ">=3.2.2" },
     { name = "psycopg-binary", specifier = ">=3.2.2" },
     { name = "pydantic", specifier = ">=2.9.2" },
@@ -2219,6 +2221,17 @@ dependencies = [
 sdist = { url = "https://files.pythonhosted.org/packages/42/92/cc564bf6381ff43ce1f4d06852fc19a2f11d180f23dc32d9588bee2f149d/pexpect-4.9.0.tar.gz", hash = "sha256:ee7d41123f3c9911050ea2c2dac107568dc43b2d3b0c7557a33212c398ead30f", size = 166450 }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/9e/c3/059298687310d527a58bb01f3b1965787ee3b40dce76752eda8b44e9a2c5/pexpect-4.9.0-py2.py3-none-any.whl", hash = "sha256:7236d1e080e4936be2dc3e326cec0af72acf9212a7e1d060210e70a47e253523", size = 63772 },
+]
+
+[[package]]
+name = "pgvector"
+version = "0.3.4"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "numpy" },
+]
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/72/f1/5e8ab6356334e330038f63b4240f294752352e35ff7adfdab3b20d3cbc76/pgvector-0.3.4-py2.py3-none-any.whl", hash = "sha256:ac2a5a5f5c81ca63998158145f2b9e022e1f61cc77d004e5c13e4412c12a99b9", size = 24138 },
 ]
 
 [[package]]

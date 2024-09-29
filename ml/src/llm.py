@@ -14,6 +14,8 @@ import numpy as np
 import uvicorn
 from pydantic_settings import BaseSettings
 from models import Major
+from pgvector.psycopg import register_vector
+
 
 # Initialize FastAPI
 app = FastAPI()
@@ -66,18 +68,20 @@ conn = psycopg.connect(
     password=settings.db_password, 
     host=settings.db_host
 )
+conn.execute('CREATE EXTENSION IF NOT EXISTS vector')
+register_vector(conn)
 
 # Function to query similar documents
 def query_similar_documents(query, top_k=5) -> list:
     query_embedding = SentenceLatentizer.encode(query).astype(np.float32)
-    with conn.cursor(row_factory=Major) as cur:
+    with conn.cursor() as cur:
         cur.execute(
             """
             SELECT id FROM "Major"
             ORDER BY vector <-> %s
             LIMIT %s;
             """,
-            (query_embedding.tolist(), top_k)
+            (query_embedding, top_k)
         )
         return cur.fetchall()
 
@@ -85,7 +89,7 @@ def query_similar_documents(query, top_k=5) -> list:
 def retrieve_documents_from_postgres(query, top_k=5):
     results = query_similar_documents(query, top_k)
     # documents = [Document(page_content=res[0]) for res in results]
-    documents = [res for res in results]
+    documents = [res[0] for res in results]
     return documents
 
 # API input model
@@ -100,10 +104,21 @@ def get_rag_answer(request: QueryRequest):
     query = request.query
     top_k = request.top_k
 
-    similar_documents = query_similar_documents(query, top_k)
+    similar_documents = retrieve_documents_from_postgres(query, top_k)
 
     # Return the generated answer
     return {"top_k": similar_documents }
+
+class KnnQueryRequest(BaseModel):
+    major_id: int
+    top_k: int = 5
+
+@app.post("/knn")
+def get_knn(request: KnnQueryRequest) -> list[int]:
+    neighbors = conn.execute('SELECT id FROM "Major" WHERE id != %(id)s ORDER BY vector <=> (SELECT vector FROM "Major" WHERE id = %(id)s) LIMIT %(top_k)s', {'id': request.major_id, "top_k": request.top_k}).fetchall()
+
+    return [neighbor[0] for neighbor in neighbors]
+
 
 
 # Health check route
