@@ -1,13 +1,12 @@
-import { LinearGradient } from 'expo-linear-gradient';
-import React from 'react';
-import { View, Text, Image, StyleSheet } from 'react-native';
-import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import {
   useFonts,
   WorkSans_500Medium,
   WorkSans_600SemiBold,
 } from '@expo-google-fonts/work-sans';
-import { Colors, Paddings, Layout } from '../styles/styles';
+import React from 'react';
+import { Image, StyleSheet, Text, View } from 'react-native';
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+import { Colors } from '../styles/styles';
 
 interface CardItemProps {
   title: string;
@@ -17,7 +16,7 @@ interface CardItemProps {
   ranking: string;
   mode: string;
   price: string;
-  image: any;
+  imageUri: string;
 }
 
 const CardItem: React.FC<CardItemProps> = ({
@@ -28,7 +27,7 @@ const CardItem: React.FC<CardItemProps> = ({
   ranking,
   mode,
   price,
-  image,
+  imageUri,
 }) => {
   const [fontsLoaded] = useFonts({
     WorkSans_500Medium,
@@ -37,7 +36,7 @@ const CardItem: React.FC<CardItemProps> = ({
 
   return (
     <View style={styles.card}>
-      <Image source={image} style={styles.image} />
+      <Image source={{ uri: imageUri }} style={styles.image} />
       <View style={styles.textOverlay}>
         <Text style={[styles.title, { fontFamily: 'WorkSans_600SemiBold' }]}>
           {title}

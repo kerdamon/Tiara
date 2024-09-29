@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
-import { View, FlatList, StyleSheet } from 'react-native';
+import { FlatList, StyleSheet, View } from 'react-native';
 import CardItem from '../components/CardItemHorizontal';
-import FilterComponent from '../components/FilterComponent';
 import SearchBox from '../components/SearchBox';
 import { Colors } from '../styles/styles';
 
@@ -108,31 +107,45 @@ const MajorsList = () => {
       ranking={item.ranking}
       mode={item.mode}
       price={item.price}
-      image={item.image}
+      imageUri={item.imageUrl}
     />
   );
 
   const [filteredData, setFilteredData] = useState(data);
 
-  const applyFilters = (filters: any) => {
-    const filtered = data.filter((item) => {
-      const universityMatch = !filters.university.length || filters.university.includes(item.university);
-      const cityMatch = !filters.city.length || filters.city.includes(item.location);
-      const studyFormMatch = !filters.studyForm.length || filters.studyForm.includes(item.mode);
-      const moneyMatch = item.price.replace(' zł', '') >= filters.moneyValue[0] && item.price.replace(' zł', '') <= filters.moneyValue[1];
-      const rankingMatch = item.ranking >= filters.rankPerspective[0] && item.ranking <= filters.rankPerspective[1];
+  // const applyFilters = (filters: any) => {
+  //   const filtered = data.filter((item) => {
+  //     const universityMatch =
+  //       !filters.university.length ||
+  //       filters.university.includes(item.university);
+  //     const cityMatch =
+  //       !filters.city.length || filters.city.includes(item.location);
+  //     const studyFormMatch =
+  //       !filters.studyForm.length || filters.studyForm.includes(item.mode);
+  //     const moneyMatch =
+  //       item.price.replace(' zł', '') >= filters.moneyValue[0] &&
+  //       item.price.replace(' zł', '') <= filters.moneyValue[1];
+  //     const rankingMatch =
+  //       item.ranking >= filters.rankPerspective[0] &&
+  //       item.ranking <= filters.rankPerspective[1];
 
-      return universityMatch && cityMatch && studyFormMatch && moneyMatch && rankingMatch;
-    });
+  //     return (
+  //       universityMatch &&
+  //       cityMatch &&
+  //       studyFormMatch &&
+  //       moneyMatch &&
+  //       rankingMatch
+  //     );
+  //   });
 
-    setFilteredData(filtered);
-  };
+  //   setFilteredData(filtered);
+  // };
 
   return (
     <View style={styles.container}>
       <View style={styles.searchContainer}>
         <SearchBox />
-        <FilterComponent onApplyFilter={applyFilters} />  
+        {/* <FilterComponent onApplyFilter={applyFilters} /> */}
         <View style={styles.horizontalLine} />
       </View>
 
@@ -155,7 +168,7 @@ const styles = StyleSheet.create({
   },
   listContainer: {
     paddingBottom: 16,
-    top: -30
+    top: -30,
   },
   horizontalLine: {
     borderBottomColor: '#A4846D',
