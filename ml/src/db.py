@@ -20,7 +20,13 @@ def connection_factory():
         user=SETTINGS.db_user, 
         password=SETTINGS.db_password, 
         host=SETTINGS.db_host,
-        port=SETTINGS.port
+        port=SETTINGS.port,
+        autocommit=True
     )
+    conn.execute('CREATE EXTENSION IF NOT EXISTS vector')
+    register_vector(conn)
+    
+    conn.execute('ALTER TABLE "Major" ADD COLUMN IF NOT EXISTS vector vector(384)')
+    return conn
 
 
