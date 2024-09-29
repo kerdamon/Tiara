@@ -37,7 +37,7 @@ export default function App() {
               name="TabHome"
               component={HomeTab}
               options={{
-                tabBarIcon: ({ focused, color, size }) => (
+                tabBarIcon: ({ focused }) => (
                   <View
                     style={[styles.iconContainer, focused && styles.activeIcon]}
                   >
@@ -53,7 +53,7 @@ export default function App() {
               name="TabCatalogue"
               component={CatalogueTab}
               options={{
-                tabBarIcon: ({ focused, color, size }) => (
+                tabBarIcon: ({ focused }) => (
                   <View
                     style={[styles.iconContainer, focused && styles.activeIcon]}
                   >
@@ -71,6 +71,7 @@ export default function App() {
     </PaperProvider>
   );
 }
+
 function HomeTab() {
   return (
     <Stack.Navigator initialRouteName={SCREEN_NAMES.HOME}>
@@ -93,11 +94,6 @@ function CatalogueTab() {
 }
 
 const styles = StyleSheet.create({
-  center: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
   iconContainer: {
     width: 40,
     height: 40,

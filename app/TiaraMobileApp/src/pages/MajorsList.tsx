@@ -5,107 +5,33 @@ import axios from 'axios';
 import React, { useState } from 'react';
 import { FlatList, StyleSheet, View } from 'react-native';
 import CardItem from '../components/CardItemHorizontal';
-import SearchBox from '../components/SearchBox';
+import FilterComponent from '../components/FilterComponent'; // Import FilterComponent
+import FilterSearch from '../components/FilterSearch';
 import { Colors } from '../styles/styles';
-
-const dataasdf = [
-  {
-    title: 'Informatyka',
-    university: 'Politechnika Śląska',
-    location: 'Gliwice',
-    duration: '6 mies',
-    ranking: '23 w Techniczne',
-    mode: 'Dzienne',
-    price: '7600 zł',
-    image: require('../../assets/newCard.png'),
-  },
-  {
-    title: 'Informatyka',
-    university: 'Politechnika Śląska',
-    location: 'Gliwice',
-    duration: '6 mies',
-    ranking: '23 w Techniczne',
-    mode: 'Dzienne',
-    price: '7600 zł',
-    image: require('../../assets/newCard.png'),
-  },
-  {
-    title: 'Informatyka',
-    university: 'Politechnika Śląska',
-    location: 'Gliwice',
-    duration: '6 mies',
-    ranking: '23 w Techniczne',
-    mode: 'Dzienne',
-    price: '7600 zł',
-    image: require('../../assets/newCard.png'),
-  },
-  {
-    title: 'Informatyka',
-    university: 'Politechnika Śląska',
-    location: 'Gliwice',
-    duration: '6 mies',
-    ranking: '23 w Techniczne',
-    mode: 'Dzienne',
-    price: '7600 zł',
-    image: require('../../assets/newCard.png'),
-  },
-  {
-    title: 'Informatyka',
-    university: 'Politechnika Śląska',
-    location: 'Gliwice',
-    duration: '6 mies',
-    ranking: '23 w Techniczne',
-    mode: 'Dzienne',
-    price: '7600 zł',
-    image: require('../../assets/newCard.png'),
-  },
-  {
-    title: 'Informatyka',
-    university: 'Politechnika Śląska',
-    location: 'Gliwice',
-    duration: '6 mies',
-    ranking: '23 w Techniczne',
-    mode: 'Dzienne',
-    price: '7600 zł',
-    image: require('../../assets/newCard.png'),
-  },
-  {
-    title: 'Informatyka',
-    university: 'Politechnika Śląska',
-    location: 'Gliwice',
-    duration: '6 mies',
-    ranking: '23 w Techniczne',
-    mode: 'Dzienne',
-    price: '7600 zł',
-    image: require('../../assets/newCard.png'),
-  },
-  {
-    title: 'Informatyka',
-    university: 'Politechnika Śląska',
-    location: 'Gliwice',
-    duration: '6 mies',
-    ranking: '23 w Techniczne',
-    mode: 'Dzienne',
-    price: '7600 zł',
-    image: require('../../assets/newCard.png'),
-  },
-  {
-    title: 'Informatyka',
-    university: 'Politechnika Śląska',
-    location: 'Gliwice',
-    duration: '6 mies',
-    ranking: '23 w Techniczne',
-    mode: 'Dzienne',
-    price: '7600 zł',
-    image: require('../../assets/newCard.png'),
-  },
-];
 
 const MajorsList = () => {
   const { data, isFetching } = useQuery({
     queryKey: ['major', 'sdf'],
     queryFn: () => axios.get<IMajor[]>(`${API_URL}/major`),
   });
+  const [filteredData, setFilteredData] = useState(data);
+  const [showFilter, setShowFilter] = useState(false);
+
+  const applyFilters = (filters: any) => {
+    const filtered = data?.data.filter((item) => {
+      const universityMatch = !filters.university.length || filters.university.includes(item.university);
+      const cityMatch = !filters.city.length || filters.city.includes(item.voivodeship);
+      const moneyMatch = item.employmentSalary>= filters.moneyValue[0] && item.employmentSalary <= filters.moneyValue[1];
+      const rankingMatch = item.rank >= filters.rankPerspective[0] && item.rank <= filters.rankPerspective[1];
+      
+      return universityMatch && cityMatch  && moneyMatch && rankingMatch;
+    });
+
+    // setFilteredData(filtered);
+    setShowFilter(false); // Ukryj komponent filtra po zatwierdzeniu
+  };
+  console.log(showFilter)
+
 
   const renderItem = ({ item }: any) => (
     <CardItem
@@ -120,51 +46,25 @@ const MajorsList = () => {
     />
   );
 
-  const [filteredData, setFilteredData] = useState(data);
-
-  // const applyFilters = (filters: any) => {
-  //   const filtered = data.filter((item) => {
-  //     const universityMatch =
-  //       !filters.university.length ||
-  //       filters.university.includes(item.university);
-  //     const cityMatch =
-  //       !filters.city.length || filters.city.includes(item.location);
-  //     const studyFormMatch =
-  //       !filters.studyForm.length || filters.studyForm.includes(item.mode);
-  //     const moneyMatch =
-  //       item.price.replace(' zł', '') >= filters.moneyValue[0] &&
-  //       item.price.replace(' zł', '') <= filters.moneyValue[1];
-  //     const rankingMatch =
-  //       item.ranking >= filters.rankPerspective[0] &&
-  //       item.ranking <= filters.rankPerspective[1];
-
-  //     return (
-  //       universityMatch &&
-  //       cityMatch &&
-  //       studyFormMatch &&
-  //       moneyMatch &&
-  //       rankingMatch
-  //     );
-  //   });
-
-  //   setFilteredData(filtered);
-  // };
-
   return (
     <View style={styles.container}>
       <View style={styles.searchContainer}>
-        <SearchBox />
-        {/* <FilterComponent onApplyFilter={applyFilters} /> */}
+        <FilterSearch hide={setShowFilter} />
         <View style={styles.horizontalLine} />
       </View>
 
-      <FlatList
-        data={data?.data}
-        renderItem={renderItem}
-        keyExtractor={(item, index) => index.toString()}
-        showsVerticalScrollIndicator={false}
-        contentContainerStyle={styles.listContainer}
-      />
+      {/* Wyświetl filtr, jeśli showFilter jest true */}
+      {showFilter ? (
+        <FilterComponent onApplyFilter={applyFilters} />
+      ) : (
+        <FlatList
+          data={filteredData?.data} // Użyj przefiltrowanych danych
+          renderItem={renderItem}
+          keyExtractor={(item, index) => index.toString()}
+          showsVerticalScrollIndicator={false}
+          contentContainerStyle={styles.listContainer}
+        />
+      )}
     </View>
   );
 };
@@ -179,7 +79,6 @@ const styles = StyleSheet.create({
   listContainer: {
     paddingBottom: 16,
     top: -30,
-    overflow: 'hidden',
   },
   horizontalLine: {
     borderBottomColor: '#A4846D',

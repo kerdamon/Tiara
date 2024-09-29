@@ -4,6 +4,7 @@ const SCREEN_NAMES = {
   PROFILE: 'Profile',
   SETTINGS: 'Settings',
   CATALOGUE: 'Catalogue',
+  MAJORS: 'MajorsList',
 };
 
 export default SCREEN_NAMES;
