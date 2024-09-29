@@ -34,6 +34,8 @@ model Major {
           timeOfLookingForJob   Float
           university            University  @relation(fields: [universityId], references: [id])
           universityId          Int
+          description           String      @default("Opis kierunku")
+          ranking               Int         @default(-1)
           vector                Unsupported("vector")?
 }
 
