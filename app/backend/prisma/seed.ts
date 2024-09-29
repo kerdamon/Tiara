@@ -42,11 +42,11 @@ async function seedUser() {
   });
 }
 
-async function seedDegrees() {
+function seedDegrees() {
   const rawData: Record<string, IRawDataEnty> = JSON.parse(fs.readFileSync("./prisma/initial_data.json", "utf-8"));
 
-  Object.values(rawData).forEach(async (entry) => {
-    await prisma.major.create({
+  return Object.values(rawData).map((entry) => {
+    return prisma.major.create({
       data: {
         majorName: entry.majorName,
         studyField: entry.studyField,
@@ -78,7 +78,7 @@ async function seedDegrees() {
 
 async function main() {
   await seedUser();
-  await seedDegrees();
+  await prisma.$transaction(seedDegrees());
 }
 
 main()
