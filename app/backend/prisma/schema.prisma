@@ -14,23 +14,33 @@ datasource db {
 }
 
 model University {
-          id            Int         @id @default(autoincrement())
-          name          String
-          degrees       Degree[]
+          id                    Int         @id @default(autoincrement())
+          name                  String      @unique
+          degrees               Major[]
 }
 
-model Degree {
-          id            Int         @id @default(autoincrement())
-          name          String
-          university    University  @relation(fields: [universityId], references: [id])
-          universityId  Int
+model Major {
+          id                    Int         @id @default(autoincrement())
+          majorName             String
+          studyField            String
+          studyLevel            String
+          voivodeship           String
+          studyForm             String
+          studyProfile          String
+          semesters             String
+          faculty               String
+          numberOfGraduates     Int
+          employmentSalary      Float
+          timeOfLookingForJob   Float
+          university            University  @relation(fields: [universityId], references: [id])
+          universityId          Int
 }
 
 model User {
-          id            Int         @id @default(autoincrement())
-          email         String      @unique
-          passwordHash  String
-          salt          String
+          id                    Int         @id @default(autoincrement())
+          email                 String      @unique
+          passwordHash          String
+          salt                  String
 }
 
 
