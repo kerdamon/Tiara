@@ -77,7 +77,7 @@ def query_similar_documents(query, top_k=5) -> list:
     with conn.cursor() as cur:
         cur.execute(
             """
-            SELECT id FROM "Major"
+            SELECT vector FROM "Major"
             ORDER BY vector <-> %s
             LIMIT %s;
             """,

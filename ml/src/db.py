@@ -1,5 +1,6 @@
 from pydantic_settings import BaseSettings 
 import psycopg
+from pgvector.psycopg import register_vector
 
 class Settings(BaseSettings):
     db_name: str
@@ -14,7 +15,7 @@ class Settings(BaseSettings):
 SETTINGS = Settings()
 
 def connection_factory(): 
-    return psycopg.connect(
+    conn = psycopg.connect(
         dbname=SETTINGS.db_name, 
         user=SETTINGS.db_user, 
         password=SETTINGS.db_password, 
