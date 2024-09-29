@@ -77,8 +77,8 @@ def query_similar_documents(query, top_k=5) -> list:
     with conn.cursor() as cur:
         cur.execute(
             """
-            SELECT id FROM "Major"
-            ORDER BY vector <-> %s
+            SELECT id FROM "embeddings"
+            ORDER BY embedding <-> %s
             LIMIT %s;
             """,
             (query_embedding, top_k)
@@ -115,7 +115,7 @@ class KnnQueryRequest(BaseModel):
 
 @app.post("/knn")
 def get_knn(request: KnnQueryRequest) -> list[int]:
-    neighbors = conn.execute('SELECT id FROM "Major" WHERE id != %(id)s ORDER BY vector <=> (SELECT vector FROM "Major" WHERE id = %(id)s) LIMIT %(top_k)s', {'id': request.major_id, "top_k": request.top_k}).fetchall()
+    neighbors = conn.execute('SELECT id FROM "embeddings" WHERE id != %(id)s ORDER BY embedding <=> (SELECT embedding FROM "embeddings" WHERE id = %(id)s) LIMIT %(top_k)s', {'id': request.major_id, "top_k": request.top_k}).fetchall()
 
     return [neighbor[0] for neighbor in neighbors]
 
