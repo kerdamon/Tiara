@@ -23,7 +23,10 @@ def connection_factory():
         port=SETTINGS.port,
         autocommit=True
     )
+    conn.execute('CREATE EXTENSION IF NOT EXISTS vector')
     register_vector(conn)
+    
+    conn.execute('ALTER TABLE "Major" ADD COLUMN IF NOT EXISTS vector vector(384)')
     return conn
 
 
