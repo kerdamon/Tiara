@@ -1,4 +1,4 @@
-import { Major } from '@common/interfaces/Major';
+import { IMajor } from '@common/interfaces/IMajor';
 import { API_URL } from '@env';
 import { faHouse } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
@@ -11,7 +11,7 @@ const MajorScreen = () => {
   const { data } = useQuery({
     queryKey: ['major', 'sdf'],
     queryFn: () =>
-      axios.post<Major[]>(`${API_URL}/major`, {
+      axios.post<IMajor[]>(`${API_URL}/major`, {
         prompt: 'dupa',
       }),
   });
@@ -19,7 +19,7 @@ const MajorScreen = () => {
   return (
     <View>
       <FontAwesomeIcon icon={faHouse} />
-      <Text>Major:</Text>
+      <Text>IMajor:</Text>
       <Text>{data?.data[0].city}</Text>
       <Text>{data?.data[0].faculty}</Text>
       <Text>{data?.data[0].jobSearchTime}</Text>

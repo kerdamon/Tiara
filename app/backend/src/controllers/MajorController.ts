@@ -11,12 +11,14 @@ export class MajorController {
   }
 
   async getMajorsByPrompt(req: Request, res: Response) {
+    console.log("getMajorsByPrompt");
     const query = req.body.query;
     const majors = await this.majorService.getMajorsByQuery(query);
     res.json(majors);
   }
 
   async getAllMajors(req: Request, res: Response) {
+    console.log("getAllMajors");
     const majors = await this.majorService.getAllMajors();
     res.json(majors);
   }
