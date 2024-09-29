@@ -12,6 +12,9 @@
     "format": "prettier --write ."
   },
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^6.6.0",
+    "@fortawesome/free-solid-svg-icons": "^6.6.0",
+    "@fortawesome/react-native-fontawesome": "^0.3.2",
     "@tanstack/react-query": "^5.56.2",
     "axios": "^1.7.7",
     "eslint-config-prettier": "^9.1.0",
@@ -20,7 +23,8 @@
     "expo-secure-store": "^13.0.2",
     "expo-status-bar": "~1.12.1",
     "react": "18.2.0",
-    "react-native": "0.74.5"
+    "react-native": "0.74.5",
+    "react-native-svg": "^15.7.1"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",

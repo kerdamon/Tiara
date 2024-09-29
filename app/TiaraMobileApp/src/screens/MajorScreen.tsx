@@ -1,5 +1,7 @@
 import { Major } from '@common/interfaces/Major';
 import { API_URL } from '@env';
+import { faHouse } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
 import React from 'react';
@@ -16,6 +18,7 @@ const MajorScreen = () => {
 
   return (
     <View>
+      <FontAwesomeIcon icon={faHouse} />
       <Text>Major:</Text>
       <Text>{data?.data[0].city}</Text>
       <Text>{data?.data[0].faculty}</Text>
