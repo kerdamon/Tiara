@@ -13,6 +13,7 @@ import psycopg
 import numpy as np
 import uvicorn
 from pydantic import BaseSettings
+from models import Major
 
 # Initialize FastAPI
 app = FastAPI()
@@ -68,7 +69,7 @@ conn = psycopg.connect(
 # Function to query similar documents
 def query_similar_documents(query, top_k=5) -> list:
     query_embedding = SentenceLatentizer.encode(query).astype(np.float32)
-    cur = conn.cursor()
+    cur = conn.cursor(row_factory=Major)
     cur.execute(
         """
         SELECT content FROM documents
