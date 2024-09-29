@@ -1,5 +1,6 @@
 import React from 'react';
 import ScreenWrapper from '../components/ScreenWrapper';
+import SearchBox from '../components/SearchBox';
 import SectionList from '../components/SectionComponent'; // Import nowego komponentu
 
 const data = [
@@ -36,6 +37,7 @@ const data = [
 const HomeScreen = () => {
   return (
     <ScreenWrapper title="Cześć!">
+      <SearchBox />
       <SectionList title="Ostatnio przeglądane" data={data} />
       <SectionList title="Wybrane dla Ciebie" data={data} />
       <SectionList title="W Twojej okolicy" data={data} />

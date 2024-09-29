@@ -66,7 +66,8 @@ const styles = StyleSheet.create({
   card: {
     width: 144,
     backgroundColor: Colors.cardBackground,
-    marginHorizontal: Paddings.small,
+    marginRight: Paddings.medium,
+    // marginHorizontal: Paddings.small,
     borderRadius: 12,
     overflow: 'hidden',
     paddingBottom: Paddings.medium,

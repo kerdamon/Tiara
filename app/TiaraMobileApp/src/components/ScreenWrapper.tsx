@@ -42,12 +42,14 @@ const ScreenWrapper: React.FC<ScreenWrapperProps> = ({ title, children }) => {
 const styles = StyleSheet.create({
   wrapper: {
     flex: 1,
+    backgroundColor: Colors.background
   },
   headerImage: {
     width: '100%',
     height: 170,
     justifyContent: 'flex-start',
     alignItems: 'center',
+    top: 45,
   },
   headerText: {
     fontSize: 80,
@@ -55,7 +57,7 @@ const styles = StyleSheet.create({
     color: Colors.background,
     lineHeight: 80,
     position: 'absolute',
-    top: 52,
+    top: 40,
     left: 24,
     fontFamily: 'CormorantGaramond_700Bold',
   },
