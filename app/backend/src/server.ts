@@ -7,7 +7,8 @@ import { MajorController } from "@/controllers/MajorController.js";
 import authRouter from "@/routers/authRouter.js";
 import { MajorRouter } from "@/routers/MajorRouter.js";
 import someRouter from "@/routers/someRouter.js";
-import { MockMajorServiceImpl } from "@/service/MajorService.js";
+import { MajorServiceImpl } from "@/service/MajorService.js";
+import { AiServiceImpl } from "@/service/ai/AiService.js"
 import { PrismaClient } from "@prisma/client";
 
 const app: Express = express();
@@ -20,7 +21,10 @@ configurePassport();
 
 const prismaClient = new PrismaClient();
 
-const majorService = new MockMajorServiceImpl(prismaClient);
+
+const aiService = new AiServiceImpl(prismaClient, "localhost:8001")
+
+const majorService = new MajorServiceImpl(aiService, prismaClient);
 const majorController = new MajorController(majorService);
 const majorRouter = new MajorRouter(majorController);
 

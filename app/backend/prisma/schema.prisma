@@ -36,7 +36,6 @@ model Major {
           universityId          Int
           description           String      @default("Opis kierunku")
           ranking               Int         @default(-1)
-          vector                Unsupported("vector")?
 }
 
 model User {

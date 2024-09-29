@@ -1,14 +1,10 @@
-/*
-  Warnings:
+-- CreateTable
+CREATE TABLE "University" (
+    "id" SERIAL NOT NULL,
+    "name" TEXT NOT NULL,
 
-  - You are about to drop the `Degree` table. If the table is not empty, all the data it contains will be lost.
-
-*/
--- DropForeignKey
-ALTER TABLE "Degree" DROP CONSTRAINT "Degree_universityId_fkey";
-
--- DropTable
-DROP TABLE "Degree";
+    CONSTRAINT "University_pkey" PRIMARY KEY ("id")
+);
 
 -- CreateTable
 CREATE TABLE "Major" (
@@ -25,9 +21,27 @@ CREATE TABLE "Major" (
     "employmentSalary" DOUBLE PRECISION NOT NULL,
     "timeOfLookingForJob" DOUBLE PRECISION NOT NULL,
     "universityId" INTEGER NOT NULL,
+    "description" TEXT NOT NULL DEFAULT 'Opis kierunku',
+    "ranking" INTEGER NOT NULL DEFAULT -1,
 
     CONSTRAINT "Major_pkey" PRIMARY KEY ("id")
 );
+
+-- CreateTable
+CREATE TABLE "User" (
+    "id" SERIAL NOT NULL,
+    "email" TEXT NOT NULL,
+    "passwordHash" TEXT NOT NULL,
+    "salt" TEXT NOT NULL,
+
+    CONSTRAINT "User_pkey" PRIMARY KEY ("id")
+);
+
+-- CreateIndex
+CREATE UNIQUE INDEX "University_name_key" ON "University"("name");
+
+-- CreateIndex
+CREATE UNIQUE INDEX "User_email_key" ON "User"("email");
 
 -- AddForeignKey
 ALTER TABLE "Major" ADD CONSTRAINT "Major_universityId_fkey" FOREIGN KEY ("universityId") REFERENCES "University"("id") ON DELETE RESTRICT ON UPDATE CASCADE;

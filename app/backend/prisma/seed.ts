@@ -69,7 +69,7 @@ async function seedDegrees() {
         },
         employmentSalary: entry.employmentData.salary,
         timeOfLookingForJob: entry.employmentData.timeOfLookingForJob,
-        ranking: entry.ranking,
+        ranking: Math.floor(Math.random() * 10) + 1,
         description: entry.description,
       }
     })
