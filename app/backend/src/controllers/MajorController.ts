@@ -7,12 +7,17 @@ export class MajorController {
   constructor(majorService: MajorService) {
     this.majorService = majorService;
     this.getMajorsByPrompt = this.getMajorsByPrompt.bind(this); // JS madness
+    this.getAllMajors = this.getAllMajors.bind(this); // JS madness
   }
 
   async getMajorsByPrompt(req: Request, res: Response) {
-    console.log("major");
     const query = req.body.query;
     const majors = await this.majorService.getMajorsByQuery(query);
+    res.json(majors);
+  }
+
+  async getAllMajors(req: Request, res: Response) {
+    const majors = await this.majorService.getAllMajors();
     res.json(majors);
   }
 }
