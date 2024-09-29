@@ -8,18 +8,19 @@ class University(BaseModel):
 
 class Major(BaseModel):
     id: int
-    majorName: str
-    studyField: str
-    studyLevel: str
-    voivodeship: str
-    studyForm: str
-    studyProfile: str
-    semesters: str
-    faculty: str
-    numberOfGraduates: int
-    employmentSalary: float
-    timeOfLookingForJob: float
-    universityId: int #czemu int, przecież ci dałem stringa institutionName
+    majorName: str = 'not specified'
+    studyField: str = 'not specified'
+    studyLevel: str = 'not specified'
+    voivodeship: str = 'not specified'
+    studyForm: str = 'not specified'
+    studyProfile: str = 'not specified'
+    semesters: str = 'not specified'
+    faculty: str = 'not specified'
+    numberOfGraduates: int = -1
+    employmentSalary: float = -1.0
+    timeOfLookingForJob: float = -1.0
+    institutionName: str = 'not specified'
+    #universityId: int #czemu int, przecież ci dałem stringa institutionName
 
     def __str__(self):
         return (
