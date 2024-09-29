@@ -1,5 +1,9 @@
 import { IMajor } from "@common/interfaces/IMajor.js";
-import { Major, PrismaClient } from "@prisma/client";
+import { Major, PrismaClient, Prisma } from "@prisma/client";
+
+type MajorWithUniversity = Prisma.MajorGetPayload<{
+  include: { university: true };
+}>;
 
 export interface MajorService {
   /**
@@ -23,27 +27,35 @@ export class MockMajorServiceImpl implements MajorService {
   getMajorsByQuery(query: string): Promise<IMajor[]> {
     const result = this.prismaClient.major.findMany({
       take: 5,
+      include: {
+        university: true,
+      }
     });
     return result.then((majors) =>
       majors.map((major) => {
-        return this.mapMajorToIMajor(major);
-      })
+        return this.mapMajorToDTO(major);
+      }),
     );
   }
 
   getAllMajors(): Promise<IMajor[]> {
-    const result = this.prismaClient.major.findMany();
+    const result = this.prismaClient.major.findMany({
+      include: {
+        university: true,
+      },
+    });
     return result.then((majors) =>
       majors.map((major) => {
-        return this.mapMajorToIMajor(major);
-      })
+        return this.mapMajorToDTO(major);
+      }),
     );
   }
 
-  mapMajorToIMajor(major: Major) {
+  private mapMajorToDTO(major: MajorWithUniversity): IMajor {
     return {
       name: major.majorName,
-      university: String(major.universityId), //TODO: map ids to proper names,
+      description: major.description,
+      university: major.university.name,
       faculty: major.faculty,
       studyField: major.studyField,
       studyLevel: major.studyLevel,
@@ -51,13 +63,21 @@ export class MockMajorServiceImpl implements MajorService {
       studyForm: major.studyForm,
       studyProfile: major.studyProfile,
       semesters: major.semesters,
-      city: "Kraków", //TODO: add city to database
       numberOfGraduates: major.numberOfGraduates,
       jobSearchTime: major.timeOfLookingForJob,
-      rank: 1, //TODO: add perspektywy.pl rank to db
-      unemploymentPercent: 0.5, //TODO: add to db
-      imageUrl: "https://dupakupa", //TODO: add to db
+      rank: major.ranking,
+      imageUrl: this.getRandomImageUrl(),
       employmentSalary: major.employmentSalary,
     };
+  }
+
+
+  private getRandomImageUrl(): string {
+    const urls: string[] = [
+      "https://www.otouczelnie.pl/assets/uploads/dzial_artykul/0dde0-agh-kierunki-studiow.jpg",
+      "https://www.agh.edu.pl/repozytoria/__processed__/6/b/csm_studia_studenci_biblioteka_cf6a9de5dd.jpg",
+      "https://studia.uj.edu.pl/documents/144324303/145714961/wmii.uj_02.jpg"
+    ];
+    return urls[Math.floor(Math.random() * urls.length)] ?? "";
   }
 }
