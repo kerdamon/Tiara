@@ -1,9 +1,15 @@
-import React from 'react';
-import { View, Text, Image, StyleSheet } from 'react-native';
-import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
-import { Colors, Paddings, Layout } from '../styles/styles';
-import { useFonts, WorkSans_500Medium, WorkSans_600SemiBold } from '@expo-google-fonts/work-sans';
+import {
+  useFonts,
+  WorkSans_500Medium,
+  WorkSans_600SemiBold,
+} from '@expo-google-fonts/work-sans';
+import { faGraduationCap } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { LinearGradient } from 'expo-linear-gradient';
+import React from 'react';
+import { Image, StyleSheet, Text, View } from 'react-native';
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+import { Colors, Paddings } from '../styles/styles';
 
 interface CardItemProps {
   title: string;
@@ -30,23 +36,43 @@ const CardItem: React.FC<CardItemProps> = ({
       <View style={styles.imageContainer}>
         <Image source={image} style={styles.image} />
         <LinearGradient
-          colors={['rgba(0, 0, 0, 0)', 'rgba(12, 0, 0, 0.8)', 'rgba(57, 2, 2, 0.8)']}
+          colors={[
+            'rgba(0, 0, 0, 0)',
+            'rgba(12, 0, 0, 0.8)',
+            'rgba(57, 2, 2, 0.8)',
+          ]}
           style={styles.gradientOverlay}
         />
         <View style={styles.textOverlay}>
-          <Text style={[styles.title, { fontFamily: 'WorkSans_700Bold' }]}>{title}</Text>
+          <Text style={[styles.title, { fontFamily: 'WorkSans_700Bold' }]}>
+            {title}
+          </Text>
         </View>
       </View>
       <View style={styles.info}>
         <View style={styles.infoItem}>
-          <MaterialIcons name="school" size={12} color={Colors.cardText} style={styles.icon} />
-          <Text style={[styles.university, { fontFamily: 'WorkSans_500Medium' }]}>
+          <FontAwesomeIcon
+            icon={faGraduationCap}
+            size={12}
+            color={Colors.cardText}
+            style={styles.icon}
+          />
+          <Text
+            style={[styles.university, { fontFamily: 'WorkSans_500Medium' }]}
+          >
             {university}
           </Text>
         </View>
         <View style={styles.infoItem}>
-          <MaterialIcons name="place" size={12} color={Colors.cardText} style={styles.icon} />
-          <Text style={[styles.location, { fontFamily: 'WorkSans_500Medium' }]}>{location}</Text>
+          <MaterialIcons
+            name="place"
+            size={12}
+            color={Colors.cardText}
+            style={styles.icon}
+          />
+          <Text style={[styles.location, { fontFamily: 'WorkSans_500Medium' }]}>
+            {location}
+          </Text>
         </View>
         <View style={styles.infoItemPrice}>
           <MaterialIcons
@@ -55,7 +81,9 @@ const CardItem: React.FC<CardItemProps> = ({
             color={Colors.cardText}
             style={styles.iconPrice}
           />
-          <Text style={[styles.price, { fontFamily: 'WorkSans_500Medium' }]}>{price} zł</Text>
+          <Text style={[styles.price, { fontFamily: 'WorkSans_500Medium' }]}>
+            {price} zł
+          </Text>
         </View>
       </View>
     </View>
@@ -98,7 +126,7 @@ const styles = StyleSheet.create({
     color: Colors.cardText,
     marginTop: 0,
     textAlign: 'center',
-    overflow: 'scroll'
+    overflow: 'scroll',
   },
   textOverlay: {
     position: 'absolute',

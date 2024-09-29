@@ -15,7 +15,11 @@ export default function App() {
       <QueryClientProvider client={queryClient}>
         <NavigationContainer>
           <Stack.Navigator initialRouteName={SCREEN_NAMES.HOME}>
-            <Stack.Screen name={SCREEN_NAMES.HOME} component={HomeScreen} options={{ headerShown: false }}/>
+            <Stack.Screen
+              name={SCREEN_NAMES.HOME}
+              component={HomeScreen}
+              options={{ headerShown: false }}
+            />
           </Stack.Navigator>
         </NavigationContainer>
       </QueryClientProvider>
