@@ -19,8 +19,9 @@ class Major(BaseModel):
     numberOfGraduates: int = -1
     employmentSalary: float = -1.0
     timeOfLookingForJob: float = -1.0
-    institutionName: str = 'not specified'
-    #universityId: int #czemu int, przecież ci dałem stringa institutionName
+    universityId: int = -1
+    description: str = 'not specified'
+    ranking: int = -1
 
     def __str__(self):
         return (
@@ -35,7 +36,9 @@ class Major(BaseModel):
             f"Number of Graduates: {self.numberOfGraduates}\n"
             f"Employment Salary: {self.employmentSalary}\n"
             f"Time of Looking for Job: {self.timeOfLookingForJob}\n"
-            f"University ID: {self.universityId}"
+            f"University ID: {self.universityId}\n"
+            f"Description: {self.description}\nonlocal"
+            f"Ranking": {self.ranking}
         )
 
 class User(BaseModel):

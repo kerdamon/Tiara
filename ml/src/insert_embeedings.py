@@ -2,7 +2,7 @@ from fastapi import FastAPI, Query
 from pydantic import BaseModel
 # from langchain.chains import RetrievalQA
 # from langchain.docstore.document import Document
-from sentence_transformers import SentenceTransformer
+from sentence_transformers import SentenceTransformer, util
 from transformers import AutoTokenizer, AutoModelForSeq2SeqLM, pipeline
 import psycopg
 import numpy as np
@@ -12,14 +12,15 @@ from pathlib import Path
 import json
 from db import connection_factory
 from models import Major
+import random
 
 SentenceLatentizer = SentenceTransformer('sentence-transformers/all-MiniLM-L6-v2')
 
 def insert_major(major):
-    embedding = SentenceLatentizer.encode(major, convert_to_numpy=True).astype(np.float32)  # Create the embedding
+    embedding = SentenceLatentizer.encode(str(major), convert_to_numpy=True).astype(np.float32)  # Create the embedding
     with connection_factory() as conn:
         cur = conn.cursor()
-        cur.execute('INSERT INTO "Major" (vector) VALUES (%s)', (embedding.tolist(),))
+        cur.execute('INSERT INTO "Major" (vector) VALUES (%s)', (embedding.tolist()))
         conn.commit()
 
 def main():
@@ -29,9 +30,13 @@ def main():
     for field_name, field in fields_of_study.items():
         # field_text = json.dumps(field, ensure_ascii=False).encode('utf8')
         # print(field_text)
-        field = "Test test test raz dwa trzy cztery."
-        # insert_major(Major(**field))
-        insert_major(field)
+        # field = "Test test test raz dwa trzy cztery."
+        insert_major(Major(**{
+            "id": random.randint(1, 1000000),
+            "universityId": random.randint(1, 1000000),
+            **field
+        }))
+        # insert_major(field)
         # doc_embedding = SentenceLatentizer.encode(field)
         # cur = conn.cursor()
         # cur.execute("INSERT INTO fields_of_study (field, embedding) VALUES (%s, %s)", (field, doc_embedding))
