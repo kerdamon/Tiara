@@ -1,10 +1,14 @@
+import { IMajor } from '@common/interfaces/IMajor';
+import { API_URL } from '@env';
+import { useQuery } from '@tanstack/react-query';
+import axios from 'axios';
 import React, { useState } from 'react';
 import { FlatList, StyleSheet, View } from 'react-native';
 import CardItem from '../components/CardItemHorizontal';
 import SearchBox from '../components/SearchBox';
 import { Colors } from '../styles/styles';
 
-const data = [
+const dataasdf = [
   {
     title: 'Informatyka',
     university: 'Politechnika Śląska',
@@ -98,15 +102,20 @@ const data = [
 ];
 
 const MajorsList = () => {
+  const { data, isFetching } = useQuery({
+    queryKey: ['major', 'sdf'],
+    queryFn: () => axios.get<IMajor[]>(`${API_URL}/major`),
+  });
+
   const renderItem = ({ item }: any) => (
     <CardItem
-      title={item.title}
+      title={item.name}
       university={item.university}
       location={item.location}
-      duration={item.duration}
-      ranking={item.ranking}
-      mode={item.mode}
-      price={item.price}
+      duration={item.semesters}
+      ranking={item.rank}
+      mode={item.studyForm}
+      price={item.employmentSalary}
       imageUri={item.imageUrl}
     />
   );
@@ -150,7 +159,7 @@ const MajorsList = () => {
       </View>
 
       <FlatList
-        data={data}
+        data={data?.data}
         renderItem={renderItem}
         keyExtractor={(item, index) => index.toString()}
         showsVerticalScrollIndicator={false}
@@ -165,10 +174,12 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: Colors.background,
     padding: 16,
+    overflow: 'hidden',
   },
   listContainer: {
     paddingBottom: 16,
     top: -30,
+    overflow: 'hidden',
   },
   horizontalLine: {
     borderBottomColor: '#A4846D',

@@ -38,18 +38,26 @@ const CardItem: React.FC<CardItemProps> = ({
     <View style={styles.card}>
       <Image source={{ uri: imageUri }} style={styles.image} />
       <View style={styles.textOverlay}>
-        <Text style={[styles.title, { fontFamily: 'WorkSans_600SemiBold' }]}>
+        <Text
+          style={[
+            styles.title,
+            styles.subBg,
+            { fontFamily: 'WorkSans_600SemiBold' },
+          ]}
+        >
           {title}
         </Text>
         <View style={styles.containerHor}>
-          <View style={styles.containerLoc}>
-            <MaterialIcons
-              name="school"
-              size={12}
-              color={Colors.cardBackground}
-              style={styles.icon}
-            />
-            <Text style={styles.textSubTitle}>{university}</Text>
+          <View style={styles.subBg}>
+            <View style={styles.containerLoc}>
+              <MaterialIcons
+                name="school"
+                size={12}
+                color={Colors.cardBackground}
+                style={styles.icon}
+              />
+              <Text style={styles.textSubTitle}>{university}</Text>
+            </View>
           </View>
 
           <View style={styles.subBg}>
