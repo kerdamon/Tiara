@@ -18,6 +18,8 @@ dependencies = [
     "transformers>=4.45.1",
     "uvicorn>=0.31.0",
     "psycopg>=3.2.2",
+    "psycopg-binary>=3.2.2",
+    "pydantic-settings>=2.5.2",
 ]
 
 [tool.uv]

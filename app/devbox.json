@@ -3,7 +3,6 @@
   "packages": [
     "nodejs@21",
     "android-tools@latest",
-    "mongosh@latest",
     "yarn@latest"
   ],
   "shell": {
