@@ -25,7 +25,7 @@ for field in main_data:
             main_data[field]['description'] = "Tu powinien być opis ze strony uczelni"
             
         try:
-            main_data[field]['ranking'] = str(perspektywy_rankings[main_data[field]['majorName']]['Akademia Górniczo-Hutnicza im. Stanisława Staszica w Krakowie'])
+            main_data[field]['ranking'] = int(perspektywy_rankings[main_data[field]['majorName']]['Akademia Górniczo-Hutnicza im. Stanisława Staszica w Krakowie'])
             #print(main_data[field]['ranking']['Akademia Górniczo-Hutnicza im. Stanisława Staszica w Krakowie'])
         except KeyError:
             main_data[field]['ranking'] = -1
