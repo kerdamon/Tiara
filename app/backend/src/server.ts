@@ -2,13 +2,13 @@ import cors from "cors";
 import "dotenv/config";
 import express, { Express, Request, Response } from "express";
 
-import { connectToMongo } from "@/config/database.js";
 import { configurePassport } from "@/config/passport.js";
 import { MajorController } from "@/controllers/MajorController.js";
 import authRouter from "@/routers/authRouter.js";
 import { MajorRouter } from "@/routers/MajorRouter.js";
 import someRouter from "@/routers/someRouter.js";
 import { MockMajorServiceImpl } from "@/service/MajorService.js";
+import { PrismaClient } from "@prisma/client";
 
 const app: Express = express();
 const PORT = process.env.PORT || 3000;
@@ -16,10 +16,11 @@ const PORT = process.env.PORT || 3000;
 app.use(cors());
 app.use(express.json());
 
-await connectToMongo();
 configurePassport();
 
-const majorService = new MockMajorServiceImpl();
+const prismaClient = new PrismaClient();
+
+const majorService = new MockMajorServiceImpl(prismaClient);
 const majorController = new MajorController(majorService);
 const majorRouter = new MajorRouter(majorController);
 
