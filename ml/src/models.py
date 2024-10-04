@@ -19,23 +19,26 @@ class Major(BaseModel):
     numberOfGraduates: int = -1
     employmentSalary: float = -1.0
     timeOfLookingForJob: float = -1.0
-    institutionName: str = 'not specified'
-    #universityId: int #czemu int, przecież ci dałem stringa institutionName
+    universityId: int = -1
+    description: str = 'not specified'
+    ranking: int = -1
 
     def __str__(self):
         return (
-            f"Major Name: {self.majorName}\n"
-            f"Study Field: {self.studyField}\n"
-            f"Study Level: {self.studyLevel}\n"
-            f"Voivodeship: {self.voivodeship}\n"
-            f"Study Form: {self.studyForm}\n"
-            f"Study Profile: {self.studyProfile}\n"
-            f"Semesters: {self.semesters}\n"
-            f"Faculty: {self.faculty}\n"
-            f"Number of Graduates: {self.numberOfGraduates}\n"
-            f"Employment Salary: {self.employmentSalary}\n"
-            f"Time of Looking for Job: {self.timeOfLookingForJob}\n"
-            f"University ID: {self.universityId}"
+            f"Major Name: {self.majorName}.\n"
+            f"Study Field: {self.studyField}.\n"
+            f"Study Level: {self.studyLevel}.\n"
+            f"Voivodeship: {self.voivodeship}.\n"
+            f"Study Form: {self.studyForm}.\n"
+            f"Study Profile: {self.studyProfile}.\n"
+            f"Semesters: {self.semesters}.\n"
+            f"Faculty: {self.faculty}.\n"
+            f"Number of Graduates: {self.numberOfGraduates}.\n"
+            f"Employment Salary: {self.employmentSalary}.\n"
+            f"Time of Looking for Job: {self.timeOfLookingForJob}.\n"
+            f"University ID: {self.universityId}.\n"
+            f"Description: {self.description}.\n"
+            f"Ranking: {self.ranking}."
         )
 
 class User(BaseModel):

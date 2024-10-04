@@ -22,7 +22,7 @@ configurePassport();
 const prismaClient = new PrismaClient();
 
 
-const aiService = new AiServiceImpl(prismaClient, "localhost:8001")
+const aiService = new AiServiceImpl(prismaClient, "http://localhost:8001")
 
 const majorService = new MajorServiceImpl(aiService, prismaClient);
 const majorController = new MajorController(majorService);

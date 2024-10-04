@@ -11,9 +11,9 @@ def get_page_data(offset):
 def get_ela_data():
     
     start_offset = 0
-    end_offset = 6860
+    end_offset = 10
     
-    target_json = '/home/ppjotrek/Python/hackyeah24/ml/data/input/ela_data.json'
+    target_json = '/home/ppjotrek/Python/hackyeah24/ml/data/input/initial_input.json'
     try:
         os.remove(target_json)
     except FileNotFoundError:
